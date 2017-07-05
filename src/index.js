@@ -10,7 +10,7 @@ try {
 	process.exit(1);
 }
 
-var options = {
+let options = {
 	url: 'http://projects.cubettech.com/timesheet/create',
 	method: 'POST',
 	headers: {
