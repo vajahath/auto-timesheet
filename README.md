@@ -18,9 +18,11 @@ here is the proposed checklist:
 - [ ] automatically detect issues and attach it
 
 ## How to get started with this?
+*(this will be changed/simplified in future releases)*
+
 - Clone this repo
 - `npm install` or `yarn install`
-- Make `./credentials/config.json` with the following content
+- Make `./credentials/config.json` with the following content. (remember to put any credentials at `./credentials` folder which will be ignored by Git)
 ```json
 {
     "Cookie": <value>,
@@ -28,7 +30,8 @@ here is the proposed checklist:
     "authenticity_token": <value>
 }
 ```
-> **Tip:** Inspect the timesheet-adding-request done from your browser to get the values of those `<value>`s. 
+> **Tip:** Inspect the timesheet-adding-request done from your browser to get the values of those `<value>`s.
+- adjust values of `start_time`, `end_time`,`task[detail]`, `project_id` etc. in `./src/index.js` to add them.
 - run `npm start`.
 
 ## Found any issues?
