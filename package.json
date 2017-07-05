@@ -1,0 +1,23 @@
+{
+	"name": "auto-timesheet",
+	"version": "1.0.0",
+	"description": "Add redmine timesheet automatically and periodically.",
+	"main": "src/index.js",
+	"scripts": {
+		"start": "node src/index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/vajahath/auto-timesheet.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/vajahath/auto-timesheet/issues"
+	},
+	"homepage": "https://github.com/vajahath/auto-timesheet#readme",
+	"dependencies": {
+		"lme": "^1.5.3",
+		"request": "^2.81.0"
+	}
+}
