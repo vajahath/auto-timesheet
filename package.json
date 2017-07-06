@@ -4,7 +4,8 @@
 	"description": "Add redmine timesheet automatically and periodically.",
 	"main": "src/index.js",
 	"scripts": {
-		"start": "node src/index.js"
+		"start": "node src/index.js",
+		"test": "node_modules/.bin/mocha ./test --timeout 6000"
 	},
 	"repository": {
 		"type": "git",
@@ -15,8 +16,13 @@
 	"bugs": {
 		"url": "https://github.com/vajahath/auto-timesheet/issues"
 	},
+	"devDependencies": {
+		"chai": "^4.0.2",
+		"mocha": "^3.4.2"
+	},
 	"homepage": "https://github.com/vajahath/auto-timesheet#readme",
 	"dependencies": {
+		"bluebird": "^3.5.0",
 		"lme": "^1.5.3",
 		"request": "^2.81.0"
 	}
