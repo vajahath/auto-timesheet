@@ -1,22 +1,27 @@
 const request = require('request');
 const lme = require('lme');
 const Promise = require('bluebird');
+const cookieParse = require('cookieparser').parse;
 
-module.exports = (username, password) => {
+module.exports = (username, password, token) => {
 	return new Promise((resolve, reject) => {
 		// set username and password
 		options.form.username = username;
 		options.form.password = password;
+		options.form.authenticity_token = token;
 
 		request(options, (err, res, body) => {
-			if (err) {
-				reject(err);
-				return;
-			}
+			if (err) reject(err);
+			if (res.statusCode !== 302) reject(new Error('This is most probably due to invalid username/password'));
+
+			let cook = 'autologin=' +
+				cookieParse(res.headers['set-cookie'][0]).autologin +
+				'; in_search=false; _redmine_session=' +
+				cookieParse(res.headers['set-cookie'][1])._redmine_session + ';'
 
 			resolve({
 				statusCode: res.statusCode,
-				setCookie: res.headers['set-cookie']
+				setCookie: cook
 			})
 		})
 	})
@@ -42,8 +47,10 @@ let options = {
 	form: {
 		"utf8": "✓",
 		"back_url": "http://projects.cubettech.com/",
+		// "authenticity_token":"<token>"
 		// "username": "",
 		// "password": "",
+		"autologin": 1,
 		"login": "Login »"
 	}
 };
