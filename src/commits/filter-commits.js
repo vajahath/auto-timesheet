@@ -26,15 +26,15 @@ let filterCommits = function() {
 
 			if (length < 120) {
 				length = 120 - length;
-				commitMsg.push(new Array(length).join(' '))
+				commitMsg.push(new Array(length).join(' '));
 			}
 			return resolve(commitMsg);
 		}).catch(err => {
-			console.log(err);
+			// console.log(err);
 			return reject(err);
 		});
 
-	})
+	});
 
 
 };

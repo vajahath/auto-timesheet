@@ -35,7 +35,7 @@ let getCommits = function() {
 
 		});
 	});
-}
+};
 
 
-module.exports = getCommits
+module.exports = getCommits;
