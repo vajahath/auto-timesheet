@@ -11,7 +11,7 @@ Returns array of last 5 commits.
 */
 let getCommits = function() {
 	return new Promise((resolve, reject) => {
-		request.get('https://api.github.com/repos/webraj1/edAPI/commits', {
+		request.get(cred.site, {
 			'auth': cred.auth,
 			'headers': cred.header
 		}, (err, res, body) => {
