@@ -12,12 +12,12 @@ module.exports = () => {
 			else {
 				let page = cheerio.load(body);
 				let authenticityToken = page('#login-form input')[1].attribs.value;
-				if (!authenticityToken) reject(new Error('Failed to get authenticity_token. Please rise an issue on github..'))
+				if (!authenticityToken) reject(new Error('Failed to get authenticity_token. Please rise an issue on github..'));
 				else {
 					cache.set('authenticityToken', authenticityToken);
 					resolve(authenticityToken);
 				}
 			}
-		})
-	})
-}
+		});
+	});
+};

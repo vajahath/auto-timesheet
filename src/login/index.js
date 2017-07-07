@@ -6,4 +6,4 @@ module.exports = () => {
 	return getToken().then(token => {
 		return loginCore(username, password, token);
 	});
-}
+};

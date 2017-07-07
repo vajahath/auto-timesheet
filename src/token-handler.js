@@ -16,4 +16,4 @@ function getAuthenticityToken() {
 module.exports = {
 	getAuthenticityToken,
 	updateAuthenticityToken
-}
+};

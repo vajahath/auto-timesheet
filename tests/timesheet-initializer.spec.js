@@ -1,4 +1,5 @@
-const expect = require('chai').expect;
+/*eslint no-undef: 0*/
+
 const timesheetInit = require('../src/timesheet-initializer');
 const login = require('../src/login');
 

@@ -1,3 +1,5 @@
+/*eslint no-undef: 0*/
+
 const expect = require('chai').expect;
 const getToken = require('../../src/login/token-extractor');
 
@@ -11,6 +13,6 @@ describe('Testing token-extractor', () => {
 			})
 			.catch(err => {
 				done(err);
-			})
+			});
 	});
 });

@@ -12,30 +12,29 @@ module.exports = (interval) => {
 		// add to timesheet
 		addActivity({
 			date: '2017-07-06',
-			projectId: "405",
-			startTime: "10:45:00",
-			endTime: "11:50:00",
-			issueId: "18264",
+			projectId: '405',
+			startTime: '10:45:00',
+			endTime: '11:50:00',
+			issueId: '18264',
 			taskDetail: 'hello                                                                                                                    ',
 		}).then(() => {
 			lme.s('activity added');
-		}).catch(err => {
-			console.log(err);
+		}).catch(() => {
 			lme.w('couldn\'t add activity. Initialing the alternate process to add it... ;)');
 			login()
 				.then(() => (timesheetInit()))
 				.then(() => (addActivity({
 					date: '2017-07-06',
-					projectId: "405",
-					startTime: "10:45:00",
-					endTime: "11:50:00",
-					issueId: "18264",
+					projectId: '405',
+					startTime: '10:45:00',
+					endTime: '11:50:00',
+					issueId: '18264',
 					taskDetail: 'hello                                                                                                                    ',
 				})))
 				.catch(err => {
 					throw err;
-				})
-		})
+				});
+		});
 
 	}, interval);
-}
+};

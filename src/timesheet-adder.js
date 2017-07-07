@@ -1,5 +1,4 @@
 const request = require('request');
-const lme = require('lme');
 const Promise = require('bluebird');
 const { getSerializedCookies, updateCookies } = require('./cookie-handler');
 const { getAuthenticityToken } = require('./token-handler');
@@ -17,16 +16,16 @@ module.exports = (stuffs) => {
 		options.headers.Cookie = cookies;
 		options.headers['X-CSRF-Token'] = authenticityToken;
 		options.form = {
-			"utf8": "✓",
-			"authenticity_token": authenticityToken,
-			"date": stuffs.date,
-			"project_id": stuffs.projectId,
-			"task[detail]": stuffs.taskDetail,
-			"start_time": stuffs.startTime,
-			"end_time": stuffs.endTime,
-			"issue_id": stuffs.issueId,
-			"commit": "Create",
-		}
+			'utf8': '✓',
+			'authenticity_token': authenticityToken,
+			'date': stuffs.date,
+			'project_id': stuffs.projectId,
+			'task[detail]': stuffs.taskDetail,
+			'start_time': stuffs.startTime,
+			'end_time': stuffs.endTime,
+			'issue_id': stuffs.issueId,
+			'commit': 'Create',
+		};
 
 		// issue request
 		// lme.s(options);
@@ -38,29 +37,29 @@ module.exports = (stuffs) => {
 			updateCookies(res.headers['set-cookie']);
 
 			if (body.includes('Time sheet has been added successfully')) return resolve();
-			else return reject(new Error('something went wrong while trying to add activity: ' + body))
-		})
+			else return reject(new Error('something went wrong while trying to add activity: ' + body));
+		});
 
-	})
-}
+	});
+};
 
 
 let options = {
 	url: 'http://projects.cubettech.com/timesheet/create',
 	method: 'POST',
 	headers: {
-		"Accept": "*/*;q=0.5, text/javascript, application/javascript, application/ecmascript, application/x-ecmascript",
-		"Accept-Encoding": "gzip, deflate",
-		"Accept-Language": "en-GB,en-US;q=0.8,en;q=0.6",
-		"Connection": "keep-alive",
-		"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-		"Cookie": null,
-		"Host": "projects.cubettech.com",
-		"Origin": "http://projects.cubettech.com",
-		"Referer": "http://projects.cubettech.com/timesheet",
-		"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.110 Safari/537.36",
-		"X-CSRF-Token": null,
-		"X-Requested-With": "XMLHttpRequest"
+		'Accept': '*/*;q=0.5, text/javascript, application/javascript, application/ecmascript, application/x-ecmascript',
+		'Accept-Encoding': 'gzip, deflate',
+		'Accept-Language': 'en-GB,en-US;q=0.8,en;q=0.6',
+		'Connection': 'keep-alive',
+		'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+		'Cookie': null,
+		'Host': 'projects.cubettech.com',
+		'Origin': 'http://projects.cubettech.com',
+		'Referer': 'http://projects.cubettech.com/timesheet',
+		'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.110 Safari/537.36',
+		'X-CSRF-Token': null,
+		'X-Requested-With': 'XMLHttpRequest'
 	},
 	// form: {
 	// 	"utf8": "✓",

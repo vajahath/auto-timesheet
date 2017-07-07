@@ -1,7 +1,6 @@
 // update cached cookies from response header
 const cookieParser = require('cookie');
 const cache = require('./cache');
-const lme = require('lme');
 
 function updateCookies(resSetCookie) {
 	// if no cookies stay cool :)
@@ -14,9 +13,9 @@ function updateCookies(resSetCookie) {
 		let parsedCookies = cookieParser.parse(stuff);
 		// update
 		Object.keys(parsedCookies).forEach(key => {
-			currentCookies[key] = parsedCookies[key]
-		})
-	})
+			currentCookies[key] = parsedCookies[key];
+		});
+	});
 	cache.set('cookies', currentCookies);
 }
 
@@ -26,11 +25,11 @@ function getSerializedCookies() {
 
 	Object.keys(storedCookies).forEach(cookie => {
 		serializedCookies += cookieParser.serialize(cookie, storedCookies[cookie]) + '; ';
-	})
+	});
 	return serializedCookies;
 }
 
 module.exports = {
 	updateCookies,
 	getSerializedCookies
-}
+};
