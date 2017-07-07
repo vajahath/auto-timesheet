@@ -2,6 +2,7 @@
 const cheerio = require('cheerio');
 const request = require('request');
 const Promise = require('bluebird');
+const cache = require('../cache');
 
 module.exports = () => {
 	return new Promise((resolve, reject) => {
@@ -11,7 +12,10 @@ module.exports = () => {
 				let page = cheerio.load(body);
 				let authenticityToken = page('#login-form input')[1].attribs.value;
 				if (!authenticityToken) reject(new Error('Failed to get authenticity_token. Please rise an issue on github..'))
-				else resolve(authenticityToken);
+				else {
+					cache.set('authenticityToken', authenticityToken);
+					resolve(authenticityToken);
+				}
 			}
 		})
 	})

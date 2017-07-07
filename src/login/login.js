@@ -2,6 +2,7 @@ const request = require('request');
 const lme = require('lme');
 const Promise = require('bluebird');
 const cookieParse = require('cookieparser').parse;
+const { updateCookies } = require('../cookie-handler');
 
 module.exports = (username, password, token) => {
 	return new Promise((resolve, reject) => {
@@ -11,17 +12,13 @@ module.exports = (username, password, token) => {
 		options.form.authenticity_token = token;
 
 		request(options, (err, res, body) => {
-			if (err) reject(err);
-			if (res.statusCode !== 302) reject(new Error('This is most probably due to invalid username/password'));
+			if (err) return reject(err);
+			if (res.statusCode !== 302) return reject(new Error('This is most probably due to invalid username/password'));
 
-			let cook = 'autologin=' +
-				cookieParse(res.headers['set-cookie'][0]).autologin +
-				'; in_search=false; _redmine_session=' +
-				cookieParse(res.headers['set-cookie'][1])._redmine_session + ';'
+			updateCookies(res.headers['set-cookie']);
 
 			resolve({
-				statusCode: res.statusCode,
-				setCookie: cook
+				statusCode: res.statusCode
 			})
 		})
 	})

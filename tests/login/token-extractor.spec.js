@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const getToken = require('../src/token-extractor');
+const getToken = require('../../src/login/token-extractor');
 
 describe('Testing token-extractor', () => {
 	it('should return authenticity_token extracted from the page', done => {
