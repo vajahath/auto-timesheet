@@ -1,7 +1,7 @@
 const request = require('request');
 const lme = require('lme');
 const Promise = require('bluebird');
-const { getSerializedCookies } = require('./cookie-handler');
+const { getSerializedCookies, updateCookies } = require('./cookie-handler');
 const { getAuthenticityToken } = require('./token-handler');
 
 module.exports = (stuffs) => {
@@ -35,6 +35,9 @@ module.exports = (stuffs) => {
 			if (err || res.statusCode !== 200) {
 				return reject(err ? err : new Error('status:' + res.statusCode));
 			}
+
+			updateCookies(res.headers['set-cookie']);
+
 			return resolve(body);
 		})
 
