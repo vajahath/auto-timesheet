@@ -1,15 +1,12 @@
 const getCommits = require('./get-commits');
 const Promise = require('bluebird');
 
-
 /*
-
-Function filters commit messages.
-Adds space in the absence of 120 characters.
-Returns array of messages
-
-*/
-let filterCommits = function() {
+ * Function filters commit messages.
+ * Adds space in the absence of 120 characters.
+ * Returns array of messages
+ */
+const filterCommits = () => {
 	let commitMsg = [];
 	let length = 0;
 	return new Promise((resolve, reject) => {
@@ -35,7 +32,6 @@ let filterCommits = function() {
 		});
 
 	});
-
 
 };
 

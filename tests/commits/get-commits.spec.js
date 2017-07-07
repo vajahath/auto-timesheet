@@ -1,7 +1,6 @@
 /*eslint no-undef: 0*/
 const expect = require('chai').expect;
-const getCommits = require('../src/commits/get-commits');
-
+const getCommits = require('../../src/commits/get-commits');
 
 describe('Testing get commits case', function() {
 	it('Getting commits', done => {
