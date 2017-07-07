@@ -16,8 +16,8 @@ module.exports = () => {
 			if (err) return reject(err);
 			if (res.statusCode !== 200) return reject(new Error('status: ' + res.statusCode));
 
-			// some silly checks to confirm that it is the intended page
-			// key gotten from inspecting tne page
+			// some silly checks to confirm that it is the intended page.
+			// (keys gotten from inspecting the intended page)
 			if (!body.includes('accesskey') ||
 				!body.includes('<option value=') ||
 				!body.includes('new_user_activity')) {

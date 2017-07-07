@@ -32,7 +32,7 @@ here is the proposed checklist:
 }
 
 ```
-- adjust values of `start_time`, `end_time`,`task[detail]`, `project_id` etc. in `./src/index.js` to add them.
+- adjust values of `start_time`, `end_time`,`task[detail]`, `project_id` etc. in `./src/timesheet-adder.js` to add them.
 - to test `npm test`.
 
 ## Found any issues?

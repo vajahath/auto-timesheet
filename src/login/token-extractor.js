@@ -1,4 +1,5 @@
 // module that extracts authenticity_token from the page
+
 const cheerio = require('cheerio');
 const request = require('request');
 const Promise = require('bluebird');

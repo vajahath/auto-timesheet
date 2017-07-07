@@ -14,7 +14,6 @@ function updateCookies(resSetCookie) {
 		let parsedCookies = cookieParser.parse(stuff);
 		// update
 		Object.keys(parsedCookies).forEach(key => {
-			// console.log(key)
 			currentCookies[key] = parsedCookies[key]
 		})
 	})
