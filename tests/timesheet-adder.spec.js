@@ -1,7 +1,9 @@
 const expect = require('chai').expect;
+const serializeErr = require('serialize-error');
 const login = require('../src/login');
 const addActivity = require('../src/timesheet-adder');
 const timesheetInit = require('../src/timesheet-initializer');
+const lme = require('lme');
 
 describe('testing add activity feature', () => {
 	it('should successfully login', done => {
@@ -16,7 +18,7 @@ describe('testing add activity feature', () => {
 			.catch(err => done(err));
 	});
 
-	it('successfully add an activity', done => {
+	it('successfully add an activity: (in fact unsuccessful cz "You  cannot enter a past date"', done => {
 		addActivity({
 			date: '2017-07-06',
 			projectId: "405",
@@ -24,10 +26,10 @@ describe('testing add activity feature', () => {
 			endTime: "11:50:00",
 			issueId: "18264",
 			taskDetail: 'hello                                                                                                                    ',
-		}).then((data) => {
-			console.log(data);
-			done()
+		}).then(() => {
+			done(new Error('passing on bad data'));
 		}).catch(err => {
+			if (JSON.stringify(serializeErr(err)).includes('You  cannot enter a past date')) return done();
 			done(err);
 		})
 	})
