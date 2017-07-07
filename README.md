@@ -15,8 +15,11 @@ here is the proposed checklist:
 - [x] initial prototype for adding entry in timesheet.
 - [x] inspect login process and mock it with program
 - [x] mock the timesheet adding process via program
+- [x] fetch commits from github
+- [x] make periodic function
+- [ ] integrate the entire workflow into the periodic function
+- [ ] use those commits as messages
 - [ ] automatically detect issues and attach it
-- [ ] fetch commits from github and use it as messages
 ## How to get started with this?
 *(this will be changed/simplified in future releases)*
 
@@ -26,13 +29,19 @@ here is the proposed checklist:
 ```json
 {
 	"timesheet": {
-		"username": "<your-username-for-timesheet>",
-		"password": "<your-password-for-timesheet>"
+		"username": "<username>",
+		"password": "<password>"
+	},
+	"git": {
+		"url": "https://api.github.com/repos/:author/:repo/commits",
+		"username": "<github-username>",
+		"password": "<github-password>",
+		"commitAuthorEmail": "<email-of-the-committer-to-be-filtered>"
 	}
 }
 
 ```
-- adjust values of `start_time`, `end_time`,`task[detail]`, `project_id` etc. in `./src/timesheet-adder.js` to add them.
+- adjust values of `start_time`, `end_time`,`task[detail]`, `project_id` etc. in `./src/periodic.js` to add them.
 - to test `npm test`.
 
 ## Found any issues?
