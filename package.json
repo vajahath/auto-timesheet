@@ -4,7 +4,6 @@
 	"description": "Add redmine timesheet automatically and periodically.",
 	"main": "src/index.js",
 	"scripts": {
-		"start": "node src/index.js",
 		"test": "./node_modules/.bin/mocha tests/ --recursive --timeout 4000"
 	},
 	"repository": {

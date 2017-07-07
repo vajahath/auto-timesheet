@@ -13,10 +13,10 @@ Ok, so as per the inspection ultimately we want to mack a browser request.
 
 here is the proposed checklist:
 - [x] initial prototype for adding entry in timesheet.
-- [ ] inspect login process and mock it with program
-- [ ] mock the timesheet adding process via program
+- [x] inspect login process and mock it with program
+- [x] mock the timesheet adding process via program
 - [ ] automatically detect issues and attach it
-
+- [ ] fetch commits from github and use it as messages
 ## How to get started with this?
 *(this will be changed/simplified in future releases)*
 
@@ -25,14 +25,15 @@ here is the proposed checklist:
 - Make `./credentials/config.json` with the following content. (remember to put any credentials at `./credentials` folder which will be ignored by Git)
 ```json
 {
-    "Cookie": <value>,
-    "X-CSRF-Token": <value>,
-    "authenticity_token": <value>
+	"timesheet": {
+		"username": "<your-username-for-timesheet>",
+		"password": "<your-password-for-timesheet>"
+	}
 }
+
 ```
-> **Tip:** Inspect the timesheet-adding-request done from your browser to get the values of those `<value>`s.
 - adjust values of `start_time`, `end_time`,`task[detail]`, `project_id` etc. in `./src/index.js` to add them.
-- run `npm start`.
+- to test `npm test`.
 
 ## Found any issues?
 rise an issue.
