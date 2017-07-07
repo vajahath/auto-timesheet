@@ -35,10 +35,10 @@ module.exports = (stuffs) => {
 			if (err || res.statusCode !== 200) {
 				return reject(err ? err : new Error('status:' + res.statusCode));
 			}
-
 			updateCookies(res.headers['set-cookie']);
 
-			return resolve(body);
+			if (body.includes('Time sheet has been added successfully')) return resolve();
+			else return reject(new Error('something went wrong while trying to add activity: ' + body))
 		})
 
 	})
