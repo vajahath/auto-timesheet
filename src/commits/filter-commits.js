@@ -1,4 +1,4 @@
-let getCommits = require('./get-commits');
+const getCommits = require('./get-commits');
 const Promise = require('bluebird');
 
 
