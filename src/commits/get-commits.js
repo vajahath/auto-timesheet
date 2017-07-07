@@ -10,10 +10,17 @@ Returns array of last 5 commits.
 
 */
 let getCommits = function() {
+	let auth = {};
+	auth.user = cred.auth.user;
+	auth.pass = cred.auth.pass;
+	auth.sendImmediately = true;
+	console.log("auth", auth);
 	return new Promise((resolve, reject) => {
 		request.get(cred.site, {
-			'auth': cred.auth,
-			'headers': cred.header
+			'auth': auth,
+			'headers': {
+				'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36'
+			}
 		}, (err, res, body) => {
 			if (err) {
 				return reject(err);
