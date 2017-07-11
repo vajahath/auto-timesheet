@@ -1,3 +1,4 @@
 {
-	"activityInterval": "2h"
+	"activityInterval": 11000,
+	"projectId": "405"
 }
