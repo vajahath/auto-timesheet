@@ -1,4 +1,4 @@
-const { tagExtractor } = require('../../src/commits/timesheet-issue-tracker');
+const tagExtractor = require('../../src/commits/timesheet-issue-tracker');
 const expect = require('chai').expect;
 
 describe('testing tag extractor >', () => {

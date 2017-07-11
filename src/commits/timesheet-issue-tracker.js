@@ -1,12 +1,3 @@
-const request = require('request');
-const Promise = require('bluebird');
-const conf = require('../../config');
-
-function loadIssues() {
-
-}
-
-
 function tagExtractor(msg) {
 
 	let issue;
@@ -27,6 +18,4 @@ function getRandomInt(min, max) {
 }
 
 
-module.exports = {
-	tagExtractor
-}
+module.exports = tagExtractor
