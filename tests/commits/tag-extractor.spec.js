@@ -7,4 +7,10 @@ describe('testing tag extractor >', () => {
 		expect(tagExtractor(s)).to.be.oneOf(['hello', 'tt']);
 		done();
 	})
+
+	it('should successfully extract tags of sample string 2', done => {
+		let s = `hello from the other side.. ti#hello., hello`;
+		expect(tagExtractor(s)).to.equal('hello');
+		done();
+	})
 })
