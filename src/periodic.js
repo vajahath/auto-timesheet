@@ -15,14 +15,16 @@ module.exports = () => {
 			projectId: config.projectId,
 			startTime: '10:45:00',
 			endTime: '11:50:00',
-			issueId: '18264', // pending
-			taskDetail: null, // join commits to form a message
+			issueId: null,
+			taskDetail: null,
 		};
 
 		getCommits()
 			// add to timesheet
-			.then(msg => {
-				params.taskDetail = msg.join(', ');
+			.then(data => {
+				params.taskDetail = data.msg;
+				params.issueId = data.issueId;
+
 				lme.s(params);
 				return addActivity(params);
 			})

@@ -5,11 +5,11 @@ Add redmine timesheet automatically and periodically.
 
 > package is in beta
 
+**Last updated: 12th Jul 2017 03:50pm**
+
 ![](https://cdn.dribbble.com/users/92827/screenshots/2652793/lab-icon.png)
 
 # Draft
-
-Ok, so as per the inspection ultimately we want to mack a browser request.
 
 here is the proposed checklist:
 - [x] initial prototype for adding entry in timesheet.
@@ -17,31 +17,20 @@ here is the proposed checklist:
 - [x] mock the timesheet adding process via program
 - [x] fetch commits from github
 - [x] make periodic function
-- [ ] integrate the entire workflow into the periodic function
-- [ ] use those commits as messages
-- [ ] automatically detect issues and attach it
+- [x] integrate the entire workflow into the periodic function
+- [x] use those commits as messages
+- [x] automatically detect issues and attach it
+- [ ] add start-time, end-time & date in the request programmatically.
+- [ ] export the entire app into a cli
+
 ## How to get started with this?
 *(this will be changed/simplified in future releases)*
 
 - Clone this repo
 - `npm install` or `yarn install`
-- Make `./credentials/config.json` with the following content. (remember to put any credentials at `./credentials` folder which will be ignored by Git)
-```json
-{
-	"timesheet": {
-		"username": "<username>",
-		"password": "<password>"
-	},
-	"git": {
-		"url": "https://api.github.com/repos/:author/:repo/commits",
-		"username": "<github-username>",
-		"password": "<github-password>",
-		"commitAuthorEmail": "<email-of-the-committer-to-be-filtered>"
-	}
-}
-
-```
-- adjust values of `start_time`, `end_time`,`task[detail]`, `project_id` etc. in `./src/periodic.js` to add them.
+- Read `./credentials/readme.md` and make configuration.
+- adjust values of `start_time`, `end_time`,`date` etc. in `./src/periodic.js` to add them.
+- add required values (including `projectId`) at `./config/config.json`
 - to test `npm test`.
 
 ## Found any issues?
