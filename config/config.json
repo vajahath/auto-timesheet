@@ -1,4 +1,5 @@
 {
 	"activityInterval": 11000,
-	"projectId": "405"
+	"projectId": "405",
+	"issueMatchingInsensitivity": 5
 }
