@@ -18,7 +18,7 @@ module.exports = (key, pool) => {
 		// sorted whitespace removed lowercased issue text;
 		let subject = issue.issue.subject.toLowerCase().replace(/ /g, '').split('').sort().join('');
 		distances.push(levenshtein.get(key, subject));
-	})
+	});
 	let minDist = Math.min(...distances);
 
 	// if there is no required matchness return null
@@ -30,4 +30,4 @@ module.exports = (key, pool) => {
 	let issueId = pool[idxOfMin].issue.id;
 
 	return issueId;
-}
+};

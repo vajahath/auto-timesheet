@@ -1,12 +1,15 @@
-function tagExtractor(msg) {
+/*eslint no-useless-escape:0*/
 
+/**
+ * Function to extract #tags 
+ */
+function tagExtractor(msg) {
 	let issue;
 	issue = msg.match(/\#\w\w+\b/g);
 	let random = getRandomInt(0, issue.length - 1);
 	let tag = issue[random];
 	tag = tag.replace('#', '');
 	return tag;
-
 }
 
 /**
@@ -18,4 +21,4 @@ function getRandomInt(min, max) {
 }
 
 
-module.exports = tagExtractor
+module.exports = tagExtractor;
