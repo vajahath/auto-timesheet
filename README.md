@@ -9,17 +9,17 @@ Add redmine timesheet automatically and periodically.
 
 # Draft
 
-Ok, so as per the inspection ultimately we want to mack a browser request.
-
 here is the proposed checklist:
 - [x] initial prototype for adding entry in timesheet.
 - [x] inspect login process and mock it with program
 - [x] mock the timesheet adding process via program
 - [x] fetch commits from github
 - [x] make periodic function
-- [ ] integrate the entire workflow into the periodic function
-- [ ] use those commits as messages
-- [ ] automatically detect issues and attach it
+- [x] integrate the entire workflow into the periodic function
+- [x] use those commits as messages
+- [x] automatically detect issues and attach it
+- [ ] add start-time, end-time & date in the request programmatically.
+- [ ] export the entire app into a cli
 ## How to get started with this?
 *(this will be changed/simplified in future releases)*
 
@@ -41,7 +41,8 @@ here is the proposed checklist:
 }
 
 ```
-- adjust values of `start_time`, `end_time`,`task[detail]`, `project_id` etc. in `./src/periodic.js` to add them.
+- adjust values of `start_time`, `end_time`,`date` etc. in `./src/periodic.js` to add them.
+- add required values (including `projectId`) at `./config/config.json`
 - to test `npm test`.
 
 ## Found any issues?
