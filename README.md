@@ -5,6 +5,8 @@ Add redmine timesheet automatically and periodically.
 
 > package is in beta
 
+**Last updated: 12th Jul 2017 03:50pm**
+
 ![](https://cdn.dribbble.com/users/92827/screenshots/2652793/lab-icon.png)
 
 # Draft
@@ -20,27 +22,13 @@ here is the proposed checklist:
 - [x] automatically detect issues and attach it
 - [ ] add start-time, end-time & date in the request programmatically.
 - [ ] export the entire app into a cli
+
 ## How to get started with this?
 *(this will be changed/simplified in future releases)*
 
 - Clone this repo
 - `npm install` or `yarn install`
-- Make `./credentials/config.json` with the following content. (remember to put any credentials at `./credentials` folder which will be ignored by Git)
-```json
-{
-	"timesheet": {
-		"username": "<username>",
-		"password": "<password>"
-	},
-	"git": {
-		"url": "https://api.github.com/repos/:author/:repo/commits",
-		"username": "<github-username>",
-		"password": "<github-password>",
-		"commitAuthorEmail": "<email-of-the-committer-to-be-filtered>"
-	}
-}
-
-```
+- Read `./credentials/readme.md` and make configuration.
 - adjust values of `start_time`, `end_time`,`date` etc. in `./src/periodic.js` to add them.
 - add required values (including `projectId`) at `./config/config.json`
 - to test `npm test`.
