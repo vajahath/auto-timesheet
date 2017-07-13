@@ -21,7 +21,7 @@ here is the proposed checklist:
 - [x] use those commits as messages
 - [x] automatically detect issues and attach it
 - [x] add start-time, end-time & date in the request programmatically.
-- [ ] better dir structure
+- [x] better dir structure
 - [ ] export the entire app into a cli
 
 ## How to get started with this?
