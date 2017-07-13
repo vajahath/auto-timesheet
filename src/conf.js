@@ -3,9 +3,9 @@ const lme = require('lme');
 let conf = {};
 
 try {
-	conf = require('../credentials/config');
+	conf = require('../credentials/credentials');
 } catch (e) {
-	lme.e('Ah.. Not found credentials/config.json');
+	lme.e('Ah.. Not found credentials/credentials.json');
 	process.exit(1);
 }
 

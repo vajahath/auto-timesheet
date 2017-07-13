@@ -1,4 +1,4 @@
-const conf = require('./config');
+const conf = require('app-root-path').require('credentials/config.json');
 const timesheetConf = require('./timesheet.conf');
 
 let setupInfo = {};
