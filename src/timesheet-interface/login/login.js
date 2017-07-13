@@ -1,6 +1,7 @@
 const request = require('request');
 const Promise = require('bluebird');
-const { updateCookies } = require('../cookie-handler');
+const pull = require('app-root-path').require;
+const { updateCookies } = pull('src/cookie-handler');
 
 module.exports = (username, password, token) => {
 	return new Promise((resolve, reject) => {

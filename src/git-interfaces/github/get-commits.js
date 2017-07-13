@@ -1,6 +1,7 @@
 const request = require('request');
 const Promise = require('bluebird');
-const cred = require('../conf').git;
+const pull = require('app-root-path').require;
+const cred = pull('src/conf').git;
 
 /*
  * Function gets last 5 commits of a particular person.

@@ -3,7 +3,8 @@
 const cheerio = require('cheerio');
 const request = require('request');
 const Promise = require('bluebird');
-const cache = require('../cache');
+const pull = require('app-root-path').require;
+const cache = pull('src/cache');
 
 module.exports = () => {
 	return new Promise((resolve, reject) => {

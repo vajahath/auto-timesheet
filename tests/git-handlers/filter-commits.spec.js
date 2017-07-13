@@ -1,6 +1,7 @@
 /*eslint no-undef: 0*/
 const expect = require('chai').expect;
-const filterCommits = require('../../src/commits/filter-commits');
+const pull = require('app-root-path').require;
+const filterCommits = pull('src/git-handlers/filter-commits');
 
 describe('Filtering commit messages', () => {
 	it('Filtering array of commit messages', done => {

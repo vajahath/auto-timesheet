@@ -1,8 +1,8 @@
 const pull = require('app-root-path').require;
 const filterCommits = require('./filter-commits');
-const loadTimesheetIssues = require('./load-timesheet-issues');
 const tagExtractor = require('./tag-extractor');
-const getClosestMatchingIssueId = require('./levenshtein-distance');
+const loadTimesheetIssues = pull('src/timesheet-interface/load-timesheet-issues');
+const getClosestMatchingIssueId = pull('src/levenshtein-distance');
 const conf = pull('config');
 
 let timesheetIssues = [];
@@ -29,9 +29,9 @@ module.exports = () => {
 				let issueId = getClosestMatchingIssueId(issue, timesheetIssues);
 				if (issueId !== null) // this check is necessary cz, it can return 0
 					return resolve({
-						msg: msg,
-						issueId: issueId
-					});
+					msg: msg,
+					issueId: issueId
+				});
 
 				// else return the original issue as the plain text. it'll create a new issue at backend;
 				return resolve({
