@@ -1,5 +1,6 @@
-const getCommits = require('./get-commits');
 const Promise = require('bluebird');
+const pull = require('app-root-path').require;
+const getCommits = pull('src/git-interfaces/github/get-commits');
 
 /*
  * Function filters commit messages.

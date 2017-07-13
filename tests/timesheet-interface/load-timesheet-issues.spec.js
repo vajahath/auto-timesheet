@@ -1,7 +1,8 @@
 /*eslint no-undef:0*/
-const login = require('../../src/login');
-const loadIssues = require('../../src/commits/load-timesheet-issues');
-const timesheetInit = require('../../src/timesheet-initializer');
+const pull = require('app-root-path').require;
+const login = pull('src/timesheet-interface/login');
+const loadIssues = pull('src/timesheet-interface/load-timesheet-issues');
+const timesheetInit = pull('src/timesheet-interface/timesheet-initializer');
 
 describe('testing issue loader for timesheet', () => {
 	it('should successfully login', done => {

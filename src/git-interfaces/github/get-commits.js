@@ -1,10 +1,14 @@
 const request = require('request');
 const Promise = require('bluebird');
-const cred = require('../conf').git;
+const pull = require('app-root-path').require;
+const cred = pull('src/conf').git;
 
 /*
  * Function gets last 5 commits of a particular person.
  * Returns array of last 5 commits.
+ * 
+ * Function returns a Promise which resolves into
+ * a particular user's last 5 commits
  */
 const getCommits = () => {
 	let auth = {
@@ -21,8 +25,9 @@ const getCommits = () => {
 		}, (err, res, body) => {
 			if (err) return reject(err);
 			let commits = JSON.parse(body);
-			let lastCommits = [];
 
+			// filter last 5 commits of a specific person
+			let lastCommits = [];
 			commits.forEach((committed) => {
 				if (lastCommits.length < 5 && committed.commit.author.email === cred.commitAuthorEmail) {
 					lastCommits.push(committed);

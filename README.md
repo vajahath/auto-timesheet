@@ -5,7 +5,7 @@ Add redmine timesheet automatically and periodically.
 
 > package is in beta
 
-**Readme Last updated: 13th Jul 2017 10:45am**
+**Readme Last updated: 13th Jul 2017 6:30pm**
 
 ![](https://cdn.dribbble.com/users/92827/screenshots/2652793/lab-icon.png)
 
@@ -21,7 +21,8 @@ here is the proposed checklist:
 - [x] use those commits as messages
 - [x] automatically detect issues and attach it
 - [x] add start-time, end-time & date in the request programmatically.
-- [ ] better dir structure
+- [x] better dir structure
+- [x] make highly configurable
 - [ ] export the entire app into a cli
 
 ## How to get started with this?
@@ -29,9 +30,7 @@ here is the proposed checklist:
 
 - Clone this repo
 - `npm install` or `yarn install`
-- Read `./credentials/readme.md` and make configuration.
-- adjust values of `start_time`, `end_time`,`date` etc. in `./src/periodic.js` to add them.
-- add required values (including `projectId`) at `./config/config.json`
+- configure this app based on [this](https://github.com/vajahath/auto-timesheet/blob/separating-git-integration/credentials/readme.md) guide.
 - to test `npm test`.
 
 ## Found any issues?

@@ -1,10 +1,10 @@
 /*eslint no-undef: 0*/
 
+const pull = require('app-root-path').require;
 const serializeErr = require('serialize-error');
-const login = require('../src/login');
-const addActivity = require('../src/timesheet-adder');
-
-const timesheetInit = require('../src/timesheet-initializer');
+const login = pull('src/timesheet-interface/login');
+const addActivity = pull('src/timesheet-interface/timesheet-adder');
+const timesheetInit = pull('src/timesheet-interface/timesheet-initializer');
 
 describe('testing add activity feature', () => {
 	it('should successfully login', done => {

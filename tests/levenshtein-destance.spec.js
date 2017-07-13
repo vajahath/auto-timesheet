@@ -2,7 +2,7 @@
 
 const expect = require('chai').expect;
 const pull = require('app-root-path').require;
-const levDist = pull('src/commits/levenshtein-distance');
+const levDist = pull('src/levenshtein-distance');
 
 describe('testing levenshtein-distance finder', () => {
 	it('testing matchness: returns closest matching issue id', done => {

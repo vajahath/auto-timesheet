@@ -1,6 +1,6 @@
 /* this can't be run with mocha - so placed here and run with node*/
 
-const periodic = require('../src/periodic');
+const periodic = require('./periodic');
 const lme = require('lme');
 
 lme.line('--');

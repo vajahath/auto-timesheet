@@ -1,7 +1,8 @@
 /*eslint no-undef:0 */
 
-const tagExtractor = require('../../src/commits/tag-extractor');
+const pull = require('app-root-path').require;
 const expect = require('chai').expect;
+const tagExtractor = pull('src/git-handlers/tag-extractor');
 
 describe('testing tag extractor >', () => {
 	it('should successfully extract tags of sample string 1', done => {

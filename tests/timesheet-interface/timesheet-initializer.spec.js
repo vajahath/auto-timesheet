@@ -1,7 +1,8 @@
 /*eslint no-undef: 0*/
 
-const timesheetInit = require('../src/timesheet-initializer');
-const login = require('../src/login');
+const pull = require('app-root-path').require;
+const timesheetInit = pull('src/timesheet-interface/timesheet-initializer');
+const login = pull('src/timesheet-interface/login');
 
 describe('testing timesheet initializer', () => {
 	it('should resolve successfully', done => {

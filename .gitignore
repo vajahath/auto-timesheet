@@ -3,7 +3,7 @@
 node_modules/
 bower_components/
 .idea/
-credentials/config.json
+credentials/credentials.json
 
 # Compiled source #
 ###################

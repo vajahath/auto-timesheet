@@ -1,10 +1,10 @@
 // the periodic invoking function
 
 const lme = require('lme');
-const addActivity = require('./timesheet-adder');
-const login = require('./login');
-const timesheetInit = require('./timesheet-initializer');
-const getCommits = require('./commits');
+const addActivity = require('./timesheet-interface/timesheet-adder');
+const login = require('./timesheet-interface/login');
+const timesheetInit = require('./timesheet-interface/timesheet-initializer');
+const getCommits = require('./git-handlers');
 const config = require('../config'); // not credentials
 const {
 	getDate,

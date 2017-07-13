@@ -1,8 +1,8 @@
 const pull = require('app-root-path').require;
 const filterCommits = require('./filter-commits');
-const loadTimesheetIssues = require('./load-timesheet-issues');
 const tagExtractor = require('./tag-extractor');
-const getClosestMatchingIssueId = require('./levenshtein-distance');
+const loadTimesheetIssues = pull('src/timesheet-interface/load-timesheet-issues');
+const getClosestMatchingIssueId = pull('src/levenshtein-distance');
 const conf = pull('config');
 
 let timesheetIssues = [];

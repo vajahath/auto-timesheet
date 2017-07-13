@@ -1,9 +1,10 @@
 /*eslint no-undef: 0*/
 
 const expect = require('chai').expect;
-const login = require('../../src/login/login');
-const conf = require('../../src/conf');
-const getToken = require('../../src/login/token-extractor');
+const pull = require('app-root-path').require;
+const login = pull('src/timesheet-interface/login/login');
+const conf = pull('src/conf');
+const getToken = pull('src/timesheet-interface/login/token-extractor');
 
 describe('testing loin feature', () => {
 	it('should successfully login', done => {
