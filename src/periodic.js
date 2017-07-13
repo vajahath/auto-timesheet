@@ -6,15 +6,23 @@ const login = require('./login');
 const timesheetInit = require('./timesheet-initializer');
 const getCommits = require('./commits');
 const config = require('../config'); // not credentials
+const {
+	getDate,
+	getEndTime,
+	getStartTime,
+	initTime
+} = require('./time-handler');
 
 module.exports = () => {
+	initTime(); // initialize time
+
 	setInterval(() => {
 		// data to send
 		let params = {
-			date: '2017-07-06',
+			date: getDate(), // '2017-07-06',
 			projectId: config.projectId,
-			startTime: '10:45:00',
-			endTime: '11:50:00',
+			startTime: getStartTime(), // '10:45:00',
+			endTime: getEndTime(), // '11:50:00',
 			issueId: null,
 			taskDetail: null,
 		};
