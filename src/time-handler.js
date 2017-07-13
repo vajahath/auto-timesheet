@@ -13,19 +13,19 @@ function getDate() {
 
 function initTime() {
 	let now = new Date();
-	let time = `${now.getHours()}:${now.getMinutes()}:00`
+	let time = `${now.getHours()}:${now.getMinutes()}:00`;
 	cache.set('startTime', time);
 }
 
 function getStartTime() {
 	let startTime = cache.get('startTime');
 	if (startTime) return startTime;
-	throw new Error('N')
+	throw new Error('N');
 }
 
 function getEndTime() {
 	let now = new Date();
-	let endTime = `${now.getHours()}:${now.getMinutes()}:00`
+	let endTime = `${now.getHours()}:${now.getMinutes()}:00`;
 	cache.set('startTime', endTime);
 	return endTime;
 }
@@ -35,4 +35,4 @@ module.exports = {
 	initTime,
 	getStartTime,
 	getEndTime
-}
+};
