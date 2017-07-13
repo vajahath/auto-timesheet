@@ -30,7 +30,7 @@ here is the proposed checklist:
 
 - Clone this repo
 - `npm install` or `yarn install`
-- configure this app based on [this](https://github.com/vajahath/auto-timesheet/blob/separating-git-integration/credentials/readme.md) guide.
+- configure this app based on [this](credentials/readme.md) guide.
 - to test `npm test`.
 
 ## Found any issues?
