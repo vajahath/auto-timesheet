@@ -5,7 +5,7 @@ Add redmine timesheet automatically and periodically.
 
 > package is in beta
 
-**Last updated: 12th Jul 2017 03:50pm**
+**Readme Last updated: 13th Jul 2017 10:45am**
 
 ![](https://cdn.dribbble.com/users/92827/screenshots/2652793/lab-icon.png)
 
@@ -20,7 +20,8 @@ here is the proposed checklist:
 - [x] integrate the entire workflow into the periodic function
 - [x] use those commits as messages
 - [x] automatically detect issues and attach it
-- [ ] add start-time, end-time & date in the request programmatically.
+- [x] add start-time, end-time & date in the request programmatically.
+- [ ] better dir structure
 - [ ] export the entire app into a cli
 
 ## How to get started with this?
