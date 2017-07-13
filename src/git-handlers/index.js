@@ -29,9 +29,9 @@ module.exports = () => {
 				let issueId = getClosestMatchingIssueId(issue, timesheetIssues);
 				if (issueId !== null) // this check is necessary cz, it can return 0
 					return resolve({
-					msg: msg,
-					issueId: issueId
-				});
+						msg: msg,
+						issueId: issueId
+					});
 
 				// else return the original issue as the plain text. it'll create a new issue at backend;
 				return resolve({
