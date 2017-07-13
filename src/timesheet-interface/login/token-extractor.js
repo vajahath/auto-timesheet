@@ -5,10 +5,11 @@ const request = require('request');
 const Promise = require('bluebird');
 const pull = require('app-root-path').require;
 const cache = pull('src/cache');
+const reqUrl = pull('config').timesheet.loginTokenExtractorUrl;
 
 module.exports = () => {
 	return new Promise((resolve, reject) => {
-		request('http://projects.cubettech.com/login?back_url=http%3A%2F%2Fprojects.cubettech.com%2F', (err, res, body) => {
+		request(reqUrl, (err, res, body) => {
 			if (err) reject(err);
 			else {
 				let page = cheerio.load(body);

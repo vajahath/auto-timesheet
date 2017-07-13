@@ -1,3 +1,8 @@
 const conf = require('./config');
+const timesheetConf = require('./timesheet.conf');
 
-module.exports = conf;
+let setupInfo = {};
+
+Object.assign(setupInfo, timesheetConf, conf);
+
+module.exports = setupInfo;

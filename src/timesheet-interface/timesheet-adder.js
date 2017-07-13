@@ -3,6 +3,7 @@ const Promise = require('bluebird');
 const pull = require('app-root-path').require;
 const { getSerializedCookies, updateCookies } = pull('src/cookie-handler');
 const { getAuthenticityToken } = pull('src/token-handler');
+const reqOptions = pull('config').timesheet.addTimesheetActivityRq;
 
 module.exports = (stuffs) => {
 	return new Promise((resolve, reject) => {
@@ -14,9 +15,9 @@ module.exports = (stuffs) => {
 			return reject(new Error('No enough data in cache'));
 
 		// set cookie and tokens and other stuffs
-		options.headers.Cookie = cookies;
-		options.headers['X-CSRF-Token'] = authenticityToken;
-		options.form = {
+		reqOptions.headers.Cookie = cookies;
+		reqOptions.headers['X-CSRF-Token'] = authenticityToken;
+		reqOptions.form = {
 			'utf8': '✓',
 			'authenticity_token': authenticityToken,
 			'date': stuffs.date,
@@ -29,8 +30,8 @@ module.exports = (stuffs) => {
 		};
 
 		// issue request
-		// lme.s(options);
-		request(options, (err, res, body) => {
+		// lme.s(reqOptions);
+		request(reqOptions, (err, res, body) => {
 
 			if (err || res.statusCode !== 200) {
 				return reject(err ? err : new Error('status:' + res.statusCode));
@@ -42,35 +43,4 @@ module.exports = (stuffs) => {
 		});
 
 	});
-};
-
-
-let options = {
-	url: 'http://projects.cubettech.com/timesheet/create',
-	method: 'POST',
-	headers: {
-		'Accept': '*/*;q=0.5, text/javascript, application/javascript, application/ecmascript, application/x-ecmascript',
-		'Accept-Encoding': 'gzip, deflate',
-		'Accept-Language': 'en-GB,en-US;q=0.8,en;q=0.6',
-		'Connection': 'keep-alive',
-		'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-		'Cookie': null,
-		'Host': 'projects.cubettech.com',
-		'Origin': 'http://projects.cubettech.com',
-		'Referer': 'http://projects.cubettech.com/timesheet',
-		'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.110 Safari/537.36',
-		'X-CSRF-Token': null,
-		'X-Requested-With': 'XMLHttpRequest'
-	},
-	// form: {
-	// 	"utf8": "✓",
-	// 	"authenticity_token": 'PrU6mQuiENXP+yJLKibNx3mDTWCyUot5XmSRjGTV0Wo=',
-	// 	"date": "2017-07-05",
-	// 	"project_id": "405",
-	// 	"task[detail]": "attaching activity logger for status change                                                                       ",
-	// 	"start_time": "10:45:00",
-	// 	"end_time": "11:50:00",
-	// 	"issue_id": "18264",
-	// 	"commit": "Create",
-	// }
 };

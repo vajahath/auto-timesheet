@@ -3,6 +3,7 @@ const Promise = require('bluebird');
 const pull = require('app-root-path').require;
 const { updateAuthenticityToken } = pull('src/token-handler');
 const { getSerializedCookies, updateCookies } = pull('src/cookie-handler');
+const reqOptions = pull('config').timesheet.timesheetInitRq;
 
 module.exports = () => {
 	return new Promise((resolve, reject) => {
@@ -10,9 +11,9 @@ module.exports = () => {
 		if (!cookies) return reject(new Error('No cookies'));
 
 		// set cookies
-		options.headers.Cookie = cookies;
-		// lme.s(options);
-		request(options, (err, res, body) => {
+		reqOptions.headers.Cookie = cookies;
+		// lme.s(reqOptions);
+		request(reqOptions, (err, res, body) => {
 			if (err) return reject(err);
 			if (res.statusCode !== 200) return reject(new Error('status: ' + res.statusCode));
 
@@ -30,20 +31,4 @@ module.exports = () => {
 			resolve();
 		});
 	});
-};
-
-let options = {
-	url: 'http://projects.cubettech.com/timesheet',
-	method: 'GET',
-	headers: {
-		'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-		'Accept-Encoding': 'gzip, deflate, sdch',
-		'Accept-Language': 'en-GB,en-US;q=0.8,en;q=0.6',
-		'Connection': 'keep-alive',
-		'Cookie': null, // will set dynamically
-		'Host': 'projects.cubettech.com',
-		'Referer': 'http://projects.cubettech.com/',
-		'Upgrade-Insecure-Requests': '1',
-		'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.110 Safari/537.36'
-	}
 };
