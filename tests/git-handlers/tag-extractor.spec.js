@@ -16,4 +16,9 @@ describe('testing tag extractor >', () => {
 		expect(tagExtractor(s)).to.equal('hello');
 		done();
 	});
+	it('should return null if nothing found', done => {
+		let s = 'hello from the other side.. hello., hello';
+		expect(tagExtractor(s)).to.be.null;
+		done();
+	});
 });
