@@ -1,10 +1,10 @@
 {
 	"name": "auto-timesheet",
-	"version": "1.0.0",
+	"version": "0.0.2",
 	"description": "Add redmine timesheet automatically and periodically.",
-	"main": "./src/bin/index.js",
+	"main": "./src/bin/auto-timesheet.js",
 	"bin": {
-		"auto-timesheet": "./src/bin/index.js"
+		"auto-timesheet": "./src/bin/auto-timesheet.js"
 	},
 	"scripts": {
 		"test-periodic": "NODE_ENV=test node src/periodic.test.js",
