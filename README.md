@@ -1,11 +1,12 @@
 # auto-timesheet
+> Package is in Beta! You are warned!
+
 Add redmine timesheet automatically and periodically.
 
+> **Important:** This package is pre-configured for [Cubet Technolabs](http://cubettech.com/) Policies. If you need to configure this app for your workstation, please [rise an issue](https://github.com/vajahath/auto-timesheet/issues) and I'll reach you back.
+
+
 [![Gitter chat](https://badges.gitter.im/npm-sqlify/gitter.png)](https://gitter.im/auto-timesheet/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
-
-> package is in beta
-
-**Readme Last updated: 13th Jul 2017 6:30pm**
 
 ![](https://cdn.dribbble.com/users/92827/screenshots/2652793/lab-icon.png)
 
@@ -23,18 +24,12 @@ here is the proposed checklist:
 - [x] add start-time, end-time & date in the request programmatically.
 - [x] better dir structure
 - [x] make highly configurable
-- [ ] export the entire app into a cli
+- [x] export the entire app into a cli
+- [ ] beautify a little bit.
+- [ ] Typescript-ify
 
 ## How to get started with this?
-*(this will be changed/simplified in future releases)*
-
-- Clone this repo
-- `npm install` or `yarn install`
-- configure this app based on [this](credentials/readme.md) guide.
-- to test `npm test`.
-
-## Found any issues?
-rise an issue.
+Getting started guide will be provided once it enters stable
 
 # Licence
 MIT &copy; [Vajahath Ahmed](https://twitter.com/vajahath7)

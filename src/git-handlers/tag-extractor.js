@@ -5,7 +5,9 @@
  */
 function tagExtractor(msg) {
 	let issue;
-	issue = msg.match(/\#\w\w+\b/g);
+	issue = msg.match(/\#\w\w+\b/g) || null;
+	if (!issue) return null;
+
 	let random = getRandomInt(0, issue.length - 1);
 	let tag = issue[random];
 	tag = tag.replace('#', '');

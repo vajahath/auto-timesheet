@@ -1,8 +1,6 @@
-const conf = require('app-root-path').require('credentials/config.json');
+const conf = require('app-root-path').require('credentials/index');
 const timesheetConf = require('./timesheet.conf');
 
-let setupInfo = {};
-
-Object.assign(setupInfo, timesheetConf, conf);
+let setupInfo = Object.assign({}, timesheetConf, conf);
 
 module.exports = setupInfo;

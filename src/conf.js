@@ -1,12 +1,13 @@
 const lme = require('lme');
+const pull = require('app-root-path').require;
 
-let conf = {};
+let cred = {};
 
 try {
-	conf = require('../credentials/credentials');
+	cred = pull('credentials/credentials');
 } catch (e) {
 	lme.e('Ah.. Not found credentials/credentials.json');
 	process.exit(1);
 }
 
-module.exports = conf;
+module.exports = cred;

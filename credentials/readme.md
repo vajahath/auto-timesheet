@@ -1,6 +1,6 @@
 # Guide for Configuration
 
-[Read this github in github](https://github.com/vajahath/auto-timesheet/blob/master/credentials/readme.md)
+[Read this in github](https://github.com/vajahath/auto-timesheet/blob/master/credentials/readme.md)
 
 ## Step 1: Setup credentials
 
