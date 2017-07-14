@@ -1,6 +1,6 @@
 {
 	"name": "auto-timesheet",
-	"version": "0.0.4",
+	"version": "0.0.13",
 	"description": "Add redmine timesheet automatically and periodically.",
 	"main": "./src/bin/auto-timesheet.js",
 	"bin": {
@@ -35,7 +35,7 @@
 		"commander": "^2.11.0",
 		"cookie": "^0.3.1",
 		"cookieparser": "^0.1.0",
-		"current-version": "vajahath/current-version",
+		"current-version": "^0.1.4",
 		"editor": "^1.0.0",
 		"fast-levenshtein": "^2.0.6",
 		"lme": "^1.5.3",

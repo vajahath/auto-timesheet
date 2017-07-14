@@ -1,12 +1,11 @@
 #!/usr/bin/env node
 
 const editor = require('editor');
-const rootPath = require('app-root-path');
-const credGen = rootPath.require('src/utils/cred-template-generator');
+const credGen = require('../utils/cred-template-generator');
 
 try {
 	// check if the credentials exists or not
-	rootPath.require('credentials/credentials');
+	require('../../credentials/credentials');
 	openEditor();
 } catch (err) {
 	if (err instanceof SyntaxError) openEditor();
