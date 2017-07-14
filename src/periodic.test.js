@@ -8,4 +8,4 @@ lme.w('\nTesting periodic function. It won\'t stop until you press Ctrl+C\n');
 lme.line('--');
 
 
-periodic(11000);
+periodic();

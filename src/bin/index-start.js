@@ -1,3 +1,6 @@
 #!/usr/bin/env node
 
-console.log('start');
+const app = require('../periodic');
+
+console.log('auto-timesheet starting');
+app();
