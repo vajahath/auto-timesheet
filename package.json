@@ -2,7 +2,10 @@
 	"name": "auto-timesheet",
 	"version": "1.0.0",
 	"description": "Add redmine timesheet automatically and periodically.",
-	"main": "src/index.js",
+	"main": "./src/bin/index.js",
+	"bin": {
+		"auto-timesheet": "./src/bin/index.js"
+	},
 	"scripts": {
 		"test-periodic": "NODE_ENV=test node src/periodic.test.js",
 		"test": "NODE_ENV=test ./node_modules/.bin/mocha tests/ --recursive --timeout 6000",
