@@ -1,0 +1,9 @@
+.vscode/
+.media/
+node_modules/
+tests/
+.eslintignore
+.eslintrc.yml
+.gitignore
+.npmignore
+*.log
