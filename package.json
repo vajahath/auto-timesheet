@@ -1,6 +1,6 @@
 {
 	"name": "auto-timesheet",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "Add redmine timesheet automatically and periodically.",
 	"main": "./src/bin/auto-timesheet.js",
 	"bin": {
@@ -15,8 +15,8 @@
 		"type": "git",
 		"url": "git+https://github.com/vajahath/auto-timesheet.git"
 	},
-	"author": "",
-	"license": "ISC",
+	"author": "Vajahath Ahmed <vajuoff.1@gmail.com> (http://twitter.com/vajahath7)",
+	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/vajahath/auto-timesheet/issues"
 	},
@@ -29,6 +29,8 @@
 	"dependencies": {
 		"app-root-path": "^2.0.1",
 		"bluebird": "^3.5.0",
+		"cat-me": "^1.0.3",
+		"chalk": "^2.0.1",
 		"cheerio": "^1.0.0-rc.2",
 		"commander": "^2.11.0",
 		"cookie": "^0.3.1",
@@ -39,6 +41,14 @@
 		"lme": "^1.5.3",
 		"lru-cache": "^4.1.1",
 		"request": "^2.81.0",
-		"serialize-error": "^2.1.0"
-	}
+		"serialize-error": "^2.1.0",
+		"update-available": "^1.0.1"
+	},
+	"contributors": [
+		"Lakshmipriya (https://twitter.com/mukundanlakshmi)"
+	],
+	"keywords": [
+		"redmine",
+		"timesheet"
+	],
 }
