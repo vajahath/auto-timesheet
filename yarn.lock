@@ -346,13 +346,9 @@ css-what@2.1:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/css-what/-/css-what-2.1.0.tgz#9467d032c38cfaefb9f2d79501253062f87fa1bd"
 
-current-version@^0.1.4:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/current-version/-/current-version-0.1.4.tgz#3f537a4988c338875a8e6a90b9f4a20dc2fac0cb"
-
 current-version@vajahath/current-version:
-  version "1.0.0"
-  resolved "https://codeload.github.com/vajahath/current-version/tar.gz/7d9533e152285e2b47ff17ea255d249dfcad68da"
+  version "1.1.0"
+  resolved "https://codeload.github.com/vajahath/current-version/tar.gz/4aa643b8c706176011bbff6b47cf890b249a714d"
   dependencies:
     app-root-path "^2.0.1"
     lme "^1.5.3"
@@ -796,6 +792,13 @@ inquirer@^3.0.6:
     string-width "^2.0.0"
     strip-ansi "^3.0.0"
     through "^2.3.6"
+
+installed-version@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/installed-version/-/installed-version-1.0.0.tgz#26d4dbee51c42e83d63dd17deb9c9a97754d2a6e"
+  dependencies:
+    app-root-path "^2.0.1"
+    lme "^1.5.3"
 
 invert-kv@^1.0.0:
   version "1.0.0"
