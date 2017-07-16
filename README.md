@@ -1,5 +1,5 @@
 # auto-timesheet
-> Package is in Beta! You are warned!
+> :warning: Package is in Beta! You are warned!
 
 Add redmine timesheet automatically and periodically.
 
@@ -25,6 +25,8 @@ here is the proposed checklist:
 - [x] better dir structure
 - [x] make highly configurable
 - [x] export the entire app into a cli
+- [x] cli tests
+- [ ] some final tests :arrow_left:
 - [ ] beautify a little bit.
 - [ ] Typescript-ify
 
