@@ -3,7 +3,9 @@ const path = require('path');
 const lme = require('lme');
 
 module.exports = (callback) => {
-    console.log(__dirname);
+
+    console.log(path.join(__dirname, '../../credentials/credentials.json'));
+
     let credGenStream = fs.createWriteStream(path.join(__dirname, '/../../credentials/credentials.json'));
     let templateStream = fs.createReadStream(path.join(__dirname, '/../../credentials/credentials.template'));
     templateStream.pipe(credGenStream);

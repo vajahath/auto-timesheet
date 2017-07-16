@@ -3,7 +3,7 @@
 const program = require('commander');
 
 program
-    .version('1.0.0')
+    .version('0.0.31')
     .command('cred', 'configure stuff')
     .command('conf', 'configure stuff')
     .command('start', 'configure stuff')
