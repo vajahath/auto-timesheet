@@ -4,10 +4,10 @@ const timesheetInit = require('../../src/timesheet-interface/timesheet-initializ
 const login = require('../../src/timesheet-interface/login');
 
 describe('testing timesheet initializer', () => {
-    it('should resolve successfully', done => {
-        login()
-            .then(() => (timesheetInit()))
-            .then(() => done())
-            .catch(err => done(err));
-    });
+	it('should resolve successfully', done => {
+		login()
+			.then(() => (timesheetInit()))
+			.then(() => done())
+			.catch(err => done(err));
+	});
 });
