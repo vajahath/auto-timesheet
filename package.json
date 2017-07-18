@@ -28,6 +28,7 @@
     },
     "homepage": "https://github.com/vajahath/auto-timesheet#readme",
     "dependencies": {
+        "async": "^2.5.0",
         "bluebird": "^3.5.0",
         "cat-me": "^1.0.3",
         "chalk": "^2.0.1",
@@ -40,6 +41,7 @@
         "jsonfile": "^3.0.1",
         "lme": "^1.5.3",
         "lru-cache": "^4.1.1",
+        "prompt": "^1.0.0",
         "request": "^2.81.0",
         "serialize-error": "^2.1.0",
         "update-available": "^1.0.1",
