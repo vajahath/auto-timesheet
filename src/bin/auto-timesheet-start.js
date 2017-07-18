@@ -3,15 +3,14 @@
 const lme = require('lme');
 const app = require('../periodic');
 const credVerifier = require('../config/credential-verifier');
-const checkUpdates = require('../updates');
 
 credVerifier()
     .then(() => {
-        lme.d('auto-timesheet starting...');
-        checkUpdates();
+        console.log('\n');
         app();
     })
     .catch(err => {
         lme.e(err);
+        console.log('\n');
         process.exit(1);
     });

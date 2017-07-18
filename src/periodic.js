@@ -6,6 +6,10 @@ const login = require('./timesheet-interface/login');
 const timesheetInit = require('./timesheet-interface/timesheet-initializer');
 const getCommits = require('./git-handlers');
 const config = require('./config/conf-loader'); // not credentials
+const catMe = require('cat-me');
+const catFact = require('cat-facts');
+const chalk = require('chalk');
+
 
 const {
     getDate,
@@ -16,6 +20,14 @@ const {
 
 module.exports = () => {
     initTime(); // initialize time
+
+    console.log(catMe('resting'));
+    console.log('\n');
+    console.log(chalk.blue('cat fact: ') + chalk.gray(catFact.random()));
+    console.log(chalk.blue('\n   +----------------------------------------------+'));
+    console.log(chalk.blue('   |         AUTO-TIMESHEET HAS STARTED           |'));
+    console.log(chalk.blue('   +----------------------------------------------+\n'));
+    console.log(chalk.gray('First activity will be added at around ') + new Date(Date.now() + config.activityInterval) + '\n');
 
     setInterval(() => {
         // data to send

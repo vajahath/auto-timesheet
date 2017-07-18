@@ -50,7 +50,7 @@ module.exports = () => {
                     spinner.fail(chalk.red('Bad pitch..'))
                     return reject(err);
                 }
-                spinner.succeed(chalk.gray('checked the pitch'));
+                spinner.succeed(chalk.gray('alL loOks goOd!'));
                 return resolve();
             })
         });
