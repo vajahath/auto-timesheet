@@ -13,7 +13,7 @@ const cache = require('../../cache');
 const getCommits = () => {
 	let auth = {
 		user: cred.username,
-		pass: cache.get('gitPsw'),
+		pass: process.env.NODE_ENV === 'test' ? cred.password : cache.get('gitPsw'),
 		sendImmediately: true
 	};
 	return new Promise((resolve, reject) => {
