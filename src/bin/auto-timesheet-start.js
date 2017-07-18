@@ -1,9 +1,16 @@
 #!/usr/bin/env node
 
+const lme = require('lme');
 const app = require('../periodic');
-// const checkForUpdates = require('../utils/check-for-updates');
+const credVerifier = require('../config/credential-verifier');
 
-console.log('auto-timesheet starting');
 
-app();
-// checkForUpdates();
+credVerifier()
+    .then(() => {
+        lme.d('auto-timesheet starting...');
+        app();
+    })
+    .catch(err => {
+        lme.e(err);
+        process.exit(1);
+    });
