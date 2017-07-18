@@ -4,8 +4,9 @@ const path = require('path');
 const editor = require('editor');
 const confGen = require('../config/conf-template-generator');
 const home = require('user-home');
+const fileName = require('../config/internals.json').configFileName;
 
-const configFile = path.join(home, '/.auto-timesheet.config.json');
+const configFile = path.join(home, fileName);
 
 try {
     // check if the conf exists or not
