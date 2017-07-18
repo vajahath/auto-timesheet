@@ -12,54 +12,54 @@ const chalk = require('chalk');
 
 
 const {
-    getDate,
-    getEndTime,
-    getStartTime,
-    initTime
+	getDate,
+	getEndTime,
+	getStartTime,
+	initTime
 } = require('./time-handler');
 
 module.exports = () => {
-    initTime(); // initialize time
+	initTime(); // initialize time
 
-    console.log(catMe('resting'));
-    console.log('\n');
-    console.log(chalk.blue('cat fact: ') + chalk.gray(catFact.random()));
-    console.log(chalk.blue('\n   +----------------------------------------------+'));
-    console.log(chalk.blue('   |         AUTO-TIMESHEET HAS STARTED           |'));
-    console.log(chalk.blue('   +----------------------------------------------+\n'));
-    console.log(chalk.gray('First activity will be added at around ') + new Date(Date.now() + config.activityInterval) + '\n');
+	console.log(catMe('resting'));
+	console.log('\n');
+	console.log(chalk.blue('cat fact: ') + chalk.gray(catFact.random()));
+	console.log(chalk.blue('\n   +----------------------------------------------+'));
+	console.log(chalk.blue('   |         AUTO-TIMESHEET HAS STARTED           |'));
+	console.log(chalk.blue('   +----------------------------------------------+\n'));
+	console.log(chalk.gray('First activity will be added at around ') + new Date(Date.now() + config.activityInterval) + '\n');
 
-    setInterval(() => {
-        // data to send
-        let params = {
-            date: getDate(), // '2017-07-06',
-            projectId: config.projectId,
-            startTime: getStartTime(), // '10:45:00',
-            endTime: getEndTime(), // '11:50:00',
-            issueId: null,
-            taskDetail: null,
-        };
+	setInterval(() => {
+		// data to send
+		let params = {
+			date: getDate(), // '2017-07-06',
+			projectId: config.projectId,
+			startTime: getStartTime(), // '10:45:00',
+			endTime: getEndTime(), // '11:50:00',
+			issueId: null,
+			taskDetail: null,
+		};
 
-        getCommits()
-            // add to timesheet
-            .then(data => {
-                params.taskDetail = data.msg;
-                params.issueId = data.issueId;
+		getCommits()
+		// add to timesheet
+			.then(data => {
+				params.taskDetail = data.msg;
+				params.issueId = data.issueId;
 
-                lme.s(params);
-                return addActivity(params);
-            })
-            .then(() => {
-                lme.s('activity added');
-            }).catch(() => {
-                lme.w('couldn\'t add activity. Initialing the alternate process to add it... ;)');
-                login()
-                    .then(() => (timesheetInit()))
-                    .then(() => (addActivity(params)))
-                    .catch(err => {
-                        throw err;
-                    });
-            });
+				lme.s(params);
+				return addActivity(params);
+			})
+			.then(() => {
+				lme.s('activity added');
+			}).catch(() => {
+				lme.w('couldn\'t add activity. Initialing the alternate process to add it... ;)');
+				login()
+					.then(() => (timesheetInit()))
+					.then(() => (addActivity(params)))
+					.catch(err => {
+						throw err;
+					});
+			});
 
-    }, +config.activityInterval);
+	}, +config.activityInterval);
 };

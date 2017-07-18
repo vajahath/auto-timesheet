@@ -34,7 +34,7 @@ module.exports = () => {
         prompt.get(schema, function(err, result) {
             if (err) {
                 console.log('cancelled');
-                process.exit(0)
+                process.exit(0);
             }
 
             // spin your head
@@ -47,16 +47,16 @@ module.exports = () => {
             // verify cred
             parallel([validateTimesheetCred, validateGitCred], err => {
                 if (err) {
-                    spinner.fail(chalk.red('Bad pitch..'))
+                    spinner.fail(chalk.red('Bad pitch..'));
                     return reject(err);
                 }
                 spinner.succeed(chalk.gray('alL loOks goOd!'));
                 return resolve();
-            })
+            });
         });
 
-    })
-}
+    });
+};
 
 function validateTimesheetCred(cb) {
     timesheetLogin()
@@ -74,7 +74,7 @@ function validateTimesheetCred(cb) {
 
 function validateGitCred(cb) {
     getCommits()
-        .then(data => {
+        .then(() => {
             lme.s(' Validated Git-service');
             return cb();
         })
