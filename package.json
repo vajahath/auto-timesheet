@@ -1,6 +1,6 @@
 {
     "name": "auto-timesheet",
-    "version": "0.0.38",
+    "version": "0.0.39",
     "description": "Add redmine timesheet automatically and periodically.",
     "main": "./src/bin/auto-timesheet.js",
     "bin": {
@@ -30,6 +30,7 @@
     "dependencies": {
         "async": "^2.5.0",
         "bluebird": "^3.5.0",
+        "cat-facts": "^1.0.2",
         "cat-me": "^1.0.3",
         "chalk": "^2.0.1",
         "cheerio": "^1.0.0-rc.2",
@@ -45,7 +46,7 @@
         "prompt": "^1.0.0",
         "request": "^2.81.0",
         "serialize-error": "^2.1.0",
-        "update-available": "^1.0.1",
+        "update-notifier": "^2.2.0",
         "user-home": "^2.0.0"
     },
     "contributors": [
