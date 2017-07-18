@@ -5,9 +5,13 @@ const getCommits = require('../git-interfaces/github/get-commits');
 const Promise = require('bluebird');
 const cache = require('../cache');
 const chalk = require('chalk');
+const ora = require('ora');
+const lme = require('lme');
 
 prompt.message = chalk.blue('> Provide ');
 prompt.delimiter = chalk.yellow(' ');
+
+let spinner;
 
 const schema = {
     properties: {
@@ -33,6 +37,9 @@ module.exports = () => {
                 process.exit(0)
             }
 
+            // spin your head
+            spinner = ora(chalk.grey('Checking the pitch..')).start();
+
             // set cred
             cache.set('timesheetPsw', result.timesheetPsw);
             cache.set('gitPsw', result.gitPsw);
@@ -40,9 +47,10 @@ module.exports = () => {
             // verify cred
             parallel([validateTimesheetCred, validateGitCred], err => {
                 if (err) {
+                    spinner.fail(chalk.red('Bad pitch..'))
                     return reject(err);
                 }
-                console.log('success!');
+                spinner.succeed(chalk.gray('checked the pitch'));
                 return resolve();
             })
         });
@@ -55,7 +63,7 @@ function validateTimesheetCred(cb) {
         .then(res => {
             if (!res) return cb('TIMESHEET: bad credentials');
             if (res.statusCode === 302) {
-                console.log('validated timesheet');
+                lme.s(' Validated Timesheet');
                 return cb();
             }
 
@@ -67,7 +75,7 @@ function validateTimesheetCred(cb) {
 function validateGitCred(cb) {
     getCommits()
         .then(data => {
-            console.log('validating git');
+            lme.s(' Validated Git-service');
             return cb();
         })
         .catch(err => {

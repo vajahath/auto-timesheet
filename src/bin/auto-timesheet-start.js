@@ -7,7 +7,7 @@ const credVerifier = require('../config/credential-verifier');
 
 credVerifier()
     .then(() => {
-        lme.s('auto-timesheet starting...');
+        lme.d('auto-timesheet starting...');
         app();
     })
     .catch(err => {

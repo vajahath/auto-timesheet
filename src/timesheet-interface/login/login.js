@@ -10,8 +10,6 @@ module.exports = (username, password, token) => {
         reqOptions.form.password = password;
         reqOptions.form.authenticity_token = token;
 
-        console.log(reqOptions.form);
-
         request(reqOptions, (err, res) => {
             if (err) return reject(err);
             if (res.statusCode !== 302) return reject('ERR occurred: This is most probably due to invalid timesheet username/password');
