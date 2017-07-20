@@ -26,7 +26,6 @@ module.exports = () => {
 
 			updateCookies(res.headers['set-cookie']);
 			body = JSON.parse(body);
-			console.log(JSON.stringify(body, null, 2));
 
 			resolve(body);
 		});
