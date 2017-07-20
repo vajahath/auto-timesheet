@@ -25,8 +25,8 @@ module.exports = () => {
 			if (res.statusCode !== 200) return reject(new Error('status: ' + res.statusCode));
 
 			updateCookies(res.headers['set-cookie']);
-
 			body = JSON.parse(body);
+			console.log(JSON.stringify(body, null, 2));
 
 			resolve(body);
 		});

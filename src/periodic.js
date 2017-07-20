@@ -41,12 +41,16 @@ module.exports = () => {
 		};
 
 		getCommits()
-		// add to timesheet
+			// add to timesheet
 			.then(data => {
 				params.taskDetail = data.msg;
 				params.issueId = data.issueId;
 
 				lme.s(params);
+
+				console.log('---------------------------------------')
+				console.log(JSON.stringify(params));
+
 				return addActivity(params);
 			})
 			.then(() => {
@@ -55,7 +59,21 @@ module.exports = () => {
 				lme.w('couldn\'t add activity. Initialing the alternate process to add it... ;)');
 				login()
 					.then(() => (timesheetInit()))
-					.then(() => (addActivity(params)))
+					.then(() => (getCommits()))
+					.then(data => {
+						params.taskDetail = data.msg;
+						params.issueId = data.issueId;
+
+						lme.s(params);
+
+						console.log('---------------------------------------')
+						console.log(JSON.stringify(params));
+
+						return addActivity(params);
+					})
+					.then(() => {
+						lme.s('activity added');
+					})
 					.catch(err => {
 						throw err;
 					});

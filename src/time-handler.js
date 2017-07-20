@@ -2,7 +2,7 @@ const cache = require('./cache');
 
 function getDate() {
 	let now = new Date();
-	let date = `${now.getFullYear()}-${now.getMonth()}-${now.getDate()}`;
+	let date = `${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()}`;
 
 	// for handling test case
 	if (process.env.NODE_ENV === 'test') return '2017-07-06';

@@ -19,7 +19,7 @@ module.exports = () => {
 			})
 			.then(commits => {
 				let msg = commits.join(', '); // timesheet msg
-				let issue = tagExtractor(commits); // extracted issue
+				let issue = tagExtractor(msg); // extracted issue
 
 				// if no issues, set the default one
 				if (!issue) issue = conf.defaultIssue;
@@ -28,9 +28,9 @@ module.exports = () => {
 				let issueId = getClosestMatchingIssueId(issue, timesheetIssues);
 				if (issueId !== null) // this check is necessary cz, it can return 0
 					return resolve({
-						msg: msg,
-						issueId: issueId
-					});
+					msg: msg,
+					issueId: issueId
+				});
 
 				// else return the original issue as the plain text. it'll create a new issue at backend;
 				return resolve({
