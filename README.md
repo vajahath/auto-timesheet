@@ -30,7 +30,9 @@ here is the proposed checklist:
 - [x] cli tests
 - [x] some final tests :arrow_left:
 - [ ] beautify a little bit.
-- [ ] Typescript-ify
+- [ ] Typescript-ify *(:checkered_flag: releases initial stable version)*
+- [ ] Gitlab support
+- [ ] Bitbucket support
 
 ## How to get started with this?
 > So you want to ride in the bleeding edge? Awesome :star:
