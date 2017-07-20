@@ -5,6 +5,7 @@ Add redmine timesheet automatically and periodically.
 
 > **Important:** This package is pre-configured for [Cubet Technolabs](http://cubettech.com/) Policies. If you need to configure this app for your workstation, please [rise an issue](https://github.com/vajahath/auto-timesheet/issues) and I'll reach you back.
 
+*Created and maintained at free times for fun.*
 
 [![Gitter chat](https://badges.gitter.im/npm-sqlify/gitter.png)](https://gitter.im/auto-timesheet/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
 
