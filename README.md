@@ -1,49 +1,26 @@
 # auto-timesheet
-> :warning: Package is in Beta! You are warned!
-
 Add redmine timesheet automatically and periodically.
+
+[![Gitter chat](https://badges.gitter.im/npm-sqlify/gitter.png)](https://gitter.im/auto-timesheet/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
+
 
 > **Important:** This package is pre-configured for [Cubet Technolabs](http://cubettech.com/) Policies. If you need to configure this app for your workstation, please [rise an issue](https://github.com/vajahath/auto-timesheet/issues) and I'll reach you back.
 
 *Created and maintained at free times for fun.*
 
-[![Gitter chat](https://badges.gitter.im/npm-sqlify/gitter.png)](https://gitter.im/auto-timesheet/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
+![](media/arrived.jpg)
 
-![](media/coming-soon.jpg)
+## Why?
+- Adds activities to timesheet automatically and periodically.
+- Integrated with your Github repo. So activity messages are constructed from your commit messages.
 
-
-# Draft
-
-here is the proposed checklist:
-- [x] initial prototype for adding entry in timesheet.
-- [x] inspect login process and mock it with program
-- [x] mock the timesheet adding process via program
-- [x] fetch commits from github
-- [x] make periodic function
-- [x] integrate the entire workflow into the periodic function
-- [x] use those commits as messages
-- [x] automatically detect issues and attach it
-- [x] add start-time, end-time & date in the request programmatically.
-- [x] better dir structure
-- [x] make highly configurable
-- [x] export the entire app into a cli
-- [x] cli tests
-- [x] some final tests :arrow_left:
-- [ ] beautify a little bit.
-- [ ] Typescript-ify *(:checkered_flag: releases initial stable version)*
-- [ ] Gitlab support
-- [ ] Bitbucket support
-
-## How to get started with this?
-> So you want to ride in the bleeding edge? Awesome :star:
-
-### install
+## Install
 ```
 npm i -g auto-timesheet
 ```
 verify with `auto-timesheet --version`.
 
-### configure
+## Configure
 ```
 auto-timesheet conf
 ```
@@ -52,12 +29,30 @@ Make sure you didn't made any syntax mistakes with the opened json file.
 
 > By default it will open the editor mentioned in the $EDITOR env_var. If none, be prepared for vi.
 
-### start
+### some important conf file properties
+
+- `projectId` : The timesheet project id in which you are working on. You should find this by inspecting the web interface. If you need any assistance, feel free to open an issue.
+- `activityInterval` : Interval in milliseconds.
+- `defaultIssue` : If `auto-timesheet` couldn't extract any issues from your commit messages, this issue will be used.
+- `config.git.commitAuthorEmail` : email of the committer. commit messages are extracted based on this email.
+- `config.git.url`: Github api url to fetch commits of your repo.
+- `issueMatchingInsensitivity` **[Recommended `3`]** : For best results, this should be an integer in between `0` and `10`. Lesser the value, it is more likely that the package will create new issues. Higher the value, the package will try to match the extracted issue with existing issues and if both are matching (the degree of matching is based on the `issueMatchingInsensitivity` value), the existing issue will be reused. **In other words,** accuracy of the matchness is based on this value. Lesser the value means more accurate and higher the value means less accurate.
+
+## Usage
+### modify your future commit messages:
+use hashtags to mention the timesheet-issue/issues you are addressing with this commit.
+An example commit message be like:
+```
+Improves #login security and updates #documentation 
+```
+Here `login` and `documentation` are timesheet issues. The package will choose one randomly and create/use that issue for this commit message.
+
+### start application
 ```
 auto-timesheet start
 ```
 
-## Found any issues?
+## Found any issues/ need help?
 Please report it at [github issues](https://github.com/vajahath/auto-timesheet/issues)
 
 

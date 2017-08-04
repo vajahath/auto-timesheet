@@ -10,7 +10,6 @@ const catMe = require('cat-me');
 const catFact = require('cat-facts');
 const chalk = require('chalk');
 
-
 const {
 	getDate,
 	getEndTime,
@@ -24,10 +23,20 @@ module.exports = () => {
 	console.log(catMe('resting'));
 	console.log('\n');
 	console.log(chalk.blue('cat fact: ') + chalk.gray(catFact.random()));
-	console.log(chalk.blue('\n   +----------------------------------------------+'));
-	console.log(chalk.blue('   |         AUTO-TIMESHEET HAS STARTED           |'));
-	console.log(chalk.blue('   +----------------------------------------------+\n'));
-	console.log(chalk.gray('First activity will be added at around ') + new Date(Date.now() + config.activityInterval) + '\n');
+	console.log(
+		chalk.blue('\n   +----------------------------------------------+')
+	);
+	console.log(
+		chalk.blue('   |         AUTO-TIMESHEET HAS STARTED           |')
+	);
+	console.log(
+		chalk.blue('   +----------------------------------------------+\n')
+	);
+	console.log(
+		chalk.gray('First activity will be added at around ') +
+			new Date(Date.now() + config.activityInterval) +
+			'\n'
+	);
 
 	setInterval(() => {
 		// data to send
@@ -37,7 +46,7 @@ module.exports = () => {
 			startTime: getStartTime(), // '10:45:00',
 			endTime: getEndTime(), // '11:50:00',
 			issueId: null,
-			taskDetail: null,
+			taskDetail: null
 		};
 
 		getCommits()
@@ -48,18 +57,18 @@ module.exports = () => {
 
 				lme.s(params);
 
-				console.log('---------------------------------------');
-				console.log(JSON.stringify(params));
-
 				return addActivity(params);
 			})
 			.then(() => {
 				lme.s('activity added');
-			}).catch(() => {
-				lme.w('couldn\'t add activity. Initialing the alternate process to add it... ;)');
+			})
+			.catch(() => {
+				lme.w(
+					'couldn\'t add activity. Initialing the alternate process to add it... ;)'
+				);
 				login()
-					.then(() => (timesheetInit()))
-					.then(() => (getCommits()))
+					.then(() => timesheetInit())
+					.then(() => getCommits())
 					.then(data => {
 						params.taskDetail = data.msg;
 						params.issueId = data.issueId;
@@ -78,6 +87,5 @@ module.exports = () => {
 						throw err;
 					});
 			});
-
 	}, +config.activityInterval);
 };
