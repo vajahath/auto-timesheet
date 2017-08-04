@@ -48,7 +48,7 @@ module.exports = () => {
 
 				lme.s(params);
 
-				console.log('---------------------------------------')
+				console.log('---------------------------------------');
 				console.log(JSON.stringify(params));
 
 				return addActivity(params);
@@ -66,7 +66,7 @@ module.exports = () => {
 
 						lme.s(params);
 
-						console.log('---------------------------------------')
+						console.log('---------------------------------------');
 						console.log(JSON.stringify(params));
 
 						return addActivity(params);
