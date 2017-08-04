@@ -14,6 +14,8 @@ Add redmine timesheet automatically and periodically.
 - Adds activities to timesheet automatically and periodically.
 - Integrated with your Github repo. So activity messages are constructed from your commit messages.
 
+> Currently, this package only supports Github.
+
 ## Install
 ```
 npm i -g auto-timesheet
@@ -40,10 +42,10 @@ Make sure you didn't made any syntax mistakes with the opened json file.
 
 ## Usage
 ### modify your future commit messages:
-use hashtags to mention the timesheet-issue/issues you are addressing with this commit.
+use star-tags (`*thisIsStarTag`) to mention the timesheet-issue/issues you are addressing with this commit.
 An example commit message be like:
 ```
-Improves #login security and updates #documentation 
+Improves *login security and updates *documentation 
 ```
 Here `login` and `documentation` are timesheet issues. The package will choose one randomly and create/use that issue for this commit message.
 
