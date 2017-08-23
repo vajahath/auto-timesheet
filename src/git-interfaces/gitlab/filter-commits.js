@@ -1,5 +1,5 @@
 const Promise = require('bluebird');
-const getCommits = require('../git-interfaces/github/get-commits');
+const getCommits = require('./get-commits');
 
 /*
  * Function filters commit messages.
@@ -11,26 +11,20 @@ const filterCommits = () => {
 	let length = 0;
 	return new Promise((resolve, reject) => {
 		getCommits()
-			.then(data => {
-				data.forEach(data => {
-					data.commit.message = data.commit.message.replace(
-						/\n/g,
-						' - '
-					);
+			.then(commits => {
+				commits.forEach(data => {
+					data.message = data.message.replace(/\n/g, ' - ');
 
-					data.commit.message = data.commit.message.replace(
-						/\t/g,
-						'    '
-					);
+					data.message = data.message.replace(/\t/g, '    ');
 
-					if (length + data.commit.message.length < 246) {
-						length = length + data.commit.message.length;
-						commitMsg.push(data.commit.message);
+					if (length + data.message.length < 246) {
+						length = length + data.message.length;
+						commitMsg.push(data.message);
 					}
 				});
 
-				if (length < 120) {
-					length = 120 - length;
+				if (length < 121) {
+					length = 121 - length;
 					commitMsg.push(new Array(length).join(' '));
 				}
 				return resolve(commitMsg);

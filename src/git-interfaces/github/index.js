@@ -1,8 +1,8 @@
 const filterCommits = require('./filter-commits');
-const tagExtractor = require('./tag-extractor');
-const loadTimesheetIssues = require('../timesheet-interface/load-timesheet-issues');
-const getClosestMatchingIssueId = require('../levenshtein-distance');
-const conf = require('../config/conf-loader');
+const tagExtractor = require('../../tag-extractor');
+const loadTimesheetIssues = require('../../timesheet-interface/load-timesheet-issues');
+const getClosestMatchingIssueId = require('../../levenshtein-distance');
+const conf = require('../../config/conf-loader');
 
 let timesheetIssues = [];
 
@@ -26,7 +26,9 @@ module.exports = () => {
 
 				// get closeness of issues
 				let issueId = getClosestMatchingIssueId(issue, timesheetIssues);
-				if (issueId !== null) // this check is necessary cz, it can return 0
+				if (
+					issueId !== null // this check is necessary cz, it can return 0
+				)
 					return resolve({
 						msg: msg,
 						issueId: issueId
@@ -41,6 +43,5 @@ module.exports = () => {
 			.catch(err => {
 				reject(err);
 			});
-
 	});
 };

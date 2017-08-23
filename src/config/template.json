@@ -8,9 +8,14 @@
 			"username": "<timesheet-user-name>"
 		},
 		"github": {
-			"url": "https://api.github.com/repos/:<author>/:<repo>/commits",
+			"url": "https://api.github.com/repos/<author>/<repo>/commits",
 			"username": "<github-username>",
 			"commitAuthorEmail": "<email-of-the-committer-to-filter>"
+		},
+		"gitlab": {
+			"url": "http://<host>/api/v4/projects/<project_id>/repository/commits",
+			"commitAuthorEmail": "<email-of-the-committer-to-filter>",
+			"PRIVATE-TOKEN": "<your gitlab private token. For more details check docs>"
 		}
 	},
 
