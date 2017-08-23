@@ -1,6 +1,6 @@
 const request = require('request');
 const Promise = require('bluebird');
-const cred = require('../../config/conf-loader').config.git;
+const cred = require('../../config/conf-loader').config.github;
 const cache = require('../../cache');
 
 /*

@@ -1,18 +1,18 @@
 {
-    "projectId": "<timesheet-project-id>",
-    "activityInterval": 7200000,
-    "defaultIssue": "auto-timesheet default",
+	"projectId": "<timesheet-project-id>",
+	"activityInterval": 7200000,
+	"defaultIssue": "auto-timesheet default",
 
-    "config": {
-        "timesheet": {
-            "username": "<timesheet-user-name>"
-        },
-        "git": {
-            "url": "https://api.github.com/repos/:<author>/:<repo>/commits",
-            "username": "<github-username>",
-            "commitAuthorEmail": "<email-of-the-committer-to-filter>"
-        }
-    },
+	"config": {
+		"timesheet": {
+			"username": "<timesheet-user-name>"
+		},
+		"github": {
+			"url": "https://api.github.com/repos/:<author>/:<repo>/commits",
+			"username": "<github-username>",
+			"commitAuthorEmail": "<email-of-the-committer-to-filter>"
+		}
+	},
 
-    "issueMatchingInsensitivity": 5
+	"issueMatchingInsensitivity": 5
 }

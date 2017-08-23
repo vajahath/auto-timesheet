@@ -18,9 +18,9 @@ const schema = {
 		timesheetPsw: {
 			description: 'Timesheet password   :',
 			required: true,
-			hidden: true,
+			hidden: true
 		},
-		gitPsw: {
+		githubPsw: {
 			description: 'Git-service password :',
 			hidden: true,
 			required: true
@@ -42,7 +42,7 @@ module.exports = () => {
 
 			// set cred
 			cache.set('timesheetPsw', result.timesheetPsw);
-			cache.set('gitPsw', result.gitPsw);
+			cache.set('githubPsw', result.githubPsw);
 
 			// verify cred
 			parallel([validateTimesheetCred, validateGitCred], err => {
@@ -54,7 +54,6 @@ module.exports = () => {
 				return resolve();
 			});
 		});
-
 	});
 };
 
@@ -67,15 +66,17 @@ function validateTimesheetCred(cb) {
 				return cb();
 			}
 
-			return cb('TIMESHEET: Something went wrong, may be bad credentials');
+			return cb(
+				'TIMESHEET: Something went wrong, may be bad credentials'
+			);
 		})
-		.catch(err => (cb(err)));
+		.catch(err => cb(err));
 }
 
 function validateGitCred(cb) {
 	getCommits()
 		.then(() => {
-			lme.s(' Validated Git-service');
+			lme.s(' Validated Github');
 			return cb();
 		})
 		.catch(err => {
