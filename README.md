@@ -68,6 +68,31 @@ Here `login` and `documentation` are timesheet issues. The package will choose o
 auto-timesheet start
 ```
 
+## Handy commands
+run the following to see all available commands.
+```
+auto-timesheet help
+```
+will give you:
+```
+Usage: auto-timesheet [options] [command]
+
+
+  Options:
+
+    -V, --version  output the version number
+    -h, --help     output usage information
+
+
+  Commands:
+
+    conf        configure stuff
+    start       start application
+    reset       reset this package [config will be deleted]
+    migrate     migrate configuration file version to compatible version
+                without loosing current configurations
+    help [cmd]  display help for [cmd]
+```
 ## Found any issues/ need help?
 Please report it at [github issues](https://github.com/vajahath/auto-timesheet/issues)
 
