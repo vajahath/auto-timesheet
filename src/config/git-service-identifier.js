@@ -12,7 +12,8 @@ if (conf['git-service'] !== 'github' && conf['git-service'] !== 'gitlab') {
 		'Possible values: ' +
 			chalk.yellow('github') +
 			', ' +
-			chalk.yellow('gitlab')
+			chalk.yellow('gitlab') +
+			'\n'
 	);
 	process.exit(1);
 }

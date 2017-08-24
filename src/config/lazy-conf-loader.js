@@ -29,21 +29,4 @@ try {
 	process.exit(1);
 }
 
-if (!conf['config-file-version'] || conf['config-file-version'] !== 2) {
-	console.log(
-		chalk.red(
-			'\nThe current config file version is incompatible with this version of app.'
-		)
-	);
-	console.log(
-		chalk.gray('\nRun ') +
-			chalk.yellow('`auto-timesheet migrate` ') +
-			chalk.grey(
-				'to fix this by \nmigrating your current config into new config.\nyou can always edit configuration by running '
-			) +
-			chalk.yellow('`auto-timesheet conf`.\n')
-	);
-	process.exit(1);
-}
-
 module.exports = conf;
