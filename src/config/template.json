@@ -2,7 +2,7 @@
 	"projectId": "<timesheet-project-id>",
 	"activityInterval": 7200000,
 	"defaultIssue": "auto-timesheet default",
-
+	"git-service": "`github` OR `gitlab`",
 	"config": {
 		"timesheet": {
 			"username": "<timesheet-user-name>"
