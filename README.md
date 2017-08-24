@@ -4,13 +4,18 @@ Add redmine timesheet automatically and periodically.
 [![Gitter chat](https://badges.gitter.im/npm-sqlify/gitter.png)](https://gitter.im/auto-timesheet/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
 
 
-> **Important:** This package is pre-configured for [Cubet Technolabs](http://cubettech.com/) Policies. If you need to configure this app for your workstation, please [rise an issue](https://github.com/vajahath/auto-timesheet/issues) and I'll reach you back.
+> :balloon: **Auto-timesheet 2 has released - with Gitlab support!** :stuck_out_tongue_winking_eye:
+
+
+> :warning: **Important:** This package is pre-configured for [Cubet Technolabs](http://cubettech.com/) Policies. If you need to configure this app for your workstation, please [rise an issue](https://github.com/vajahath/auto-timesheet/issues) and I'll reach you back.
 
 *Created and maintained at free times for fun.*
 
-![](media/arrived.jpg)
+
+![](media/great.jpg)
 
 ## Why?
+- Because I keep forgetting to add stuffs to timesheet. :triumph:
 - Adds activities to timesheet automatically and periodically.
 - Integrated with your Git repo. So activity messages are constructed from your commit messages.
 - Supports Github and Gitlab.
