@@ -12,7 +12,7 @@ Add redmine timesheet automatically and periodically.
 
 ## Why?
 - Adds activities to timesheet automatically and periodically.
-- Integrated with your Github repo. So activity messages are constructed from your commit messages.
+- Integrated with your Git repo. So activity messages are constructed from your commit messages.
 - Supports Github and Gitlab.
 
 ## Install
@@ -33,7 +33,7 @@ Make sure you didn't made any syntax mistakes with the opened json file.
 ## some important conf file properties
 
 ### General configurations
-- `projectId` : The timesheet project id in which you are working on. You should find this by inspecting the web interface. If you need any assistance, feel free to open an issue.
+- `projectId` : The timesheet project id in which you are working on. You should find this by inspecting the web interface of timesheet. If you need any assistance, feel free to open an issue.
 - `activityInterval` : Interval in milliseconds.
 - `defaultIssue` : If `auto-timesheet` couldn't extract any issues from your commit messages, this issue will be used.
 - `git-service`: selected git service. Possible options: `github` and `gitlab`. Based on this value, corresponding git configuration is used.
@@ -52,7 +52,7 @@ eg: `http://192.168.1.55/api/v4/projects/80/repository/commits`
 - `config.gitlab.commitAuthorEmail` : email of the committer. commit messages are extracted based on this email.
 
 ### Advanced configs
-- `issueMatchingInsensitivity` **[Recommended `3`]** : For best results, this should be an integer in between `0` and `10`. Lesser the value, it is more likely that the package will create new issues. Higher the value, the package will try to match the extracted issue with existing issues and if both are matching (the degree of matching is based on the `issueMatchingInsensitivity` value), the existing issue will be reused. **In other words,** accuracy of the matchness is based on this value. Lesser the value means more accurate and higher the value means less accurate.
+- `issueMatchingInsensitivity` **[Recommended `4`]** : For best results, this should be an integer in between `0` and `10`. Lesser the value, it is more likely that the package will create new issues. Higher the value, the package will try to match the extracted issue with existing issues and if both are matching (the degree of matching is based on the `issueMatchingInsensitivity` value), the existing issue will be reused. **In other words,** accuracy of the matchness is based on this value. Lesser the value means more accurate and higher the value means less accurate.
 
 ## Usage
 ### modify your future commit messages:
