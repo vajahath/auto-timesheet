@@ -16,7 +16,7 @@ const getCommits = () => {
 		pass:
 			process.env.NODE_ENV === 'test'
 				? cred.password
-				: cache.get('gitPsw'),
+				: cache.get('githubPsw'),
 		sendImmediately: true
 	};
 	return new Promise((resolve, reject) => {

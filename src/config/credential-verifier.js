@@ -1,7 +1,12 @@
 const prompt = require('prompt');
 const { parallel } = require('async');
 const timesheetLogin = require('../timesheet-interface/login');
-const getCommits = require('../git-interfaces/github/get-commits');
+
+// identify git service
+const gitService = require('./git-service-identifier');
+// use the corresponding git service function for getting commits
+const getCommits = require(`../git-interfaces/${gitService}/get-commits`);
+
 const Promise = require('bluebird');
 const cache = require('../cache');
 const chalk = require('chalk');
@@ -19,14 +24,18 @@ const schema = {
 			description: 'Timesheet password   :',
 			required: true,
 			hidden: true
-		},
-		githubPsw: {
-			description: 'Git-service password :',
-			hidden: true,
-			required: true
 		}
 	}
 };
+
+// if the selected service is github, acquire the github password
+if (gitService === 'github') {
+	schema.properties.githubPsw = {
+		description: 'Git-service password :',
+		hidden: true,
+		required: true
+	};
+}
 
 module.exports = () => {
 	return new Promise((resolve, reject) => {
@@ -42,7 +51,10 @@ module.exports = () => {
 
 			// set cred
 			cache.set('timesheetPsw', result.timesheetPsw);
-			cache.set('githubPsw', result.githubPsw);
+
+			if (gitService === 'github') {
+				cache.set('githubPsw', result.githubPsw);
+			}
 
 			// verify cred
 			parallel([validateTimesheetCred, validateGitCred], err => {
@@ -76,7 +88,7 @@ function validateTimesheetCred(cb) {
 function validateGitCred(cb) {
 	getCommits()
 		.then(() => {
-			lme.s(' Validated Github');
+			lme.s(' Validated Git-service');
 			return cb();
 		})
 		.catch(err => {
