@@ -1,18 +1,24 @@
 {
-    "projectId": "<timesheet-project-id>",
-    "activityInterval": 7200000,
-    "defaultIssue": "auto-timesheet default",
-
-    "config": {
-        "timesheet": {
-            "username": "<timesheet-user-name>"
-        },
-        "git": {
-            "url": "https://api.github.com/repos/:<author>/:<repo>/commits",
-            "username": "<github-username>",
-            "commitAuthorEmail": "<email-of-the-committer-to-filter>"
-        }
-    },
-
-    "issueMatchingInsensitivity": 5
+	"config-file-version": 2,
+	"projectId": "<timesheet-project-id>",
+	"activityInterval": 7200000,
+	"defaultIssue": "auto-timesheet default",
+	"git-service": "`github` OR `gitlab`",
+	"config": {
+		"timesheet": {
+			"username": "<timesheet-user-name>"
+		},
+		"github": {
+			"url": "https://api.github.com/repos/<author>/<repo>/commits",
+			"username": "<github-username>",
+			"commitAuthorEmail": "<email-of-the-committer-to-filter>"
+		},
+		"gitlab": {
+			"url": "http://<host(eg:192.168.1.55)>/api/v4/projects/<project_id(eg: 80. look this at the settings page of your repo OR ask repo owner)>/repository/commits",
+			"commitAuthorEmail": "<email-of-the-committer-to-filter>",
+			"PRIVATE-TOKEN": "<your gitlab private token. look at your profile page>"
+		}
+	},
+	"help": "Refer docs to know more about all these fields/ rise an issue",
+	"issueMatchingInsensitivity": 4
 }

@@ -1,7 +1,12 @@
 const prompt = require('prompt');
 const { parallel } = require('async');
 const timesheetLogin = require('../timesheet-interface/login');
-const getCommits = require('../git-interfaces/github/get-commits');
+
+// identify git service
+const gitService = require('./git-service-identifier');
+// use the corresponding git service function for getting commits
+const getCommits = require(`../git-interfaces/${gitService}/get-commits`);
+
 const Promise = require('bluebird');
 const cache = require('../cache');
 const chalk = require('chalk');
@@ -18,15 +23,19 @@ const schema = {
 		timesheetPsw: {
 			description: 'Timesheet password   :',
 			required: true,
-			hidden: true,
-		},
-		gitPsw: {
-			description: 'Git-service password :',
-			hidden: true,
-			required: true
+			hidden: true
 		}
 	}
 };
+
+// if the selected service is github, acquire the github password
+if (gitService === 'github') {
+	schema.properties.githubPsw = {
+		description: 'Git-service password :',
+		hidden: true,
+		required: true
+	};
+}
 
 module.exports = () => {
 	return new Promise((resolve, reject) => {
@@ -42,7 +51,10 @@ module.exports = () => {
 
 			// set cred
 			cache.set('timesheetPsw', result.timesheetPsw);
-			cache.set('gitPsw', result.gitPsw);
+
+			if (gitService === 'github') {
+				cache.set('githubPsw', result.githubPsw);
+			}
 
 			// verify cred
 			parallel([validateTimesheetCred, validateGitCred], err => {
@@ -54,7 +66,6 @@ module.exports = () => {
 				return resolve();
 			});
 		});
-
 	});
 };
 
@@ -67,9 +78,11 @@ function validateTimesheetCred(cb) {
 				return cb();
 			}
 
-			return cb('TIMESHEET: Something went wrong, may be bad credentials');
+			return cb(
+				'TIMESHEET: Something went wrong, may be bad credentials'
+			);
 		})
-		.catch(err => (cb(err)));
+		.catch(err => cb(err));
 }
 
 function validateGitCred(cb) {

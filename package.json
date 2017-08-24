@@ -1,15 +1,15 @@
 {
 	"name": "auto-timesheet",
-	"version": "1.0.1",
+	"version": "2.0.0",
 	"description": "Add redmine timesheet automatically and periodically.",
 	"main": "src/bin/auto-timesheet.js",
 	"bin": {
 		"auto-timesheet": "src/bin/auto-timesheet.js"
 	},
 	"scripts": {
-		"test-periodic": "./node_modules/.bin/cross-env NODE_ENV=test node src/periodic.test.js",
-		"test": "./node_modules/.bin/cross-env NODE_ENV=test ./node_modules/.bin/mocha tests/ --recursive --timeout 10000",
-		"lint": "./node_modules/.bin/eslint . --fix"
+		"test-periodic": "cross-env NODE_ENV=test node src/periodic.test.js",
+		"test": "cross-env NODE_ENV=test mocha tests/ --recursive --timeout 10000",
+		"lint": "eslint . --fix"
 	},
 	"repository": {
 		"type": "git",
@@ -30,7 +30,6 @@
 	"dependencies": {
 		"async": "^2.5.0",
 		"bluebird": "^3.5.0",
-		"cat-facts": "^1.0.2",
 		"cat-me": "^1.0.3",
 		"chalk": "^2.0.1",
 		"cheerio": "^1.0.0-rc.2",

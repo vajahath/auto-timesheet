@@ -10,4 +10,9 @@ program
 	.version(version)
 	.command('conf', 'configure stuff')
 	.command('start', 'start application')
+	.command('reset', 'reset this package [config will be deleted]')
+	.command(
+		'migrate',
+		'migrate configuration file version to compatible version \n            without loosing current configurations'
+	)
 	.parse(process.argv);
