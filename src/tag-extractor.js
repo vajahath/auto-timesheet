@@ -10,7 +10,7 @@ function tagExtractor(msg) {
 
 	let random = getRandomInt(0, issue.length - 1);
 	let tag = issue[random];
-	tag = tag.replace("*", "");
+	tag = tag.replace('*', '');
 	return tag;
 }
 
