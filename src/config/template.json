@@ -1,4 +1,5 @@
 {
+	"config-file-version": "2.0.0",
 	"projectId": "<timesheet-project-id>",
 	"activityInterval": 7200000,
 	"defaultIssue": "auto-timesheet default",
@@ -13,11 +14,11 @@
 			"commitAuthorEmail": "<email-of-the-committer-to-filter>"
 		},
 		"gitlab": {
-			"url": "http://<host>/api/v4/projects/<project_id>/repository/commits",
+			"url": "http://<host(eg:192.168.1.55)>/api/v4/projects/<project_id(eg: 80. look this at the settings page of your repo OR ask repo owner)>/repository/commits",
 			"commitAuthorEmail": "<email-of-the-committer-to-filter>",
-			"PRIVATE-TOKEN": "<your gitlab private token. For more details check docs>"
+			"PRIVATE-TOKEN": "<your gitlab private token. look at your profile page>"
 		}
 	},
-
+	"help": "Refer docs to know more about all these fields/ rise an issue",
 	"issueMatchingInsensitivity": 5
 }
