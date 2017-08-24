@@ -12,7 +12,6 @@ const gitService = require('./config/git-service-identifier');
 const getCommits = require(`./git-interfaces/${gitService}`);
 
 const catMe = require('cat-me');
-const catFact = require('cat-facts');
 const chalk = require('chalk');
 
 const {
@@ -27,7 +26,6 @@ module.exports = () => {
 
 	console.log(catMe('resting'));
 	console.log('\n');
-	console.log(chalk.blue('cat fact: ') + chalk.gray(catFact.random()));
 	console.log(
 		chalk.blue('\n   +----------------------------------------------+')
 	);
