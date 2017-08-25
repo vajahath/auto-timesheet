@@ -51,9 +51,9 @@ Make sure you didn't made any syntax mistakes with the opened json file.
 - `config.gitlab.url`: Gitlab api url to fetch commits of your repo.
 here is an example template: 
 ```
-http://<host(eg:192.168.1.55)>/api/v4/projects/<project_id(eg: 80. look this at the settings page of your repo OR ask repo owner)>/repository/commits
+http://<host(eg:192.168.1.55)>/api/v4/projects/<project_id(eg: 80. look this at the settings page of your repo OR ask repo owner)>/repository/commits?ref_name=<branch_name>
 ```
-eg: `http://192.168.1.55/api/v4/projects/80/repository/commits`
+eg: `http://192.168.1.55/api/v4/projects/80/repository/commits?ref_name=master`
 - `config.gitlab.commitAuthorEmail` : email of the committer. commit messages are extracted based on this email.
 
 ### Advanced configs

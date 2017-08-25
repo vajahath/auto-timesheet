@@ -14,7 +14,7 @@
 			"commitAuthorEmail": "<email-of-the-committer-to-filter>"
 		},
 		"gitlab": {
-			"url": "http://<host(eg:192.168.1.55)>/api/v4/projects/<project_id(eg: 80. look this at the settings page of your repo OR ask repo owner)>/repository/commits",
+			"url": "http://<host(eg:192.168.1.55)>/api/v4/projects/<project_id(eg: 80. look this at the settings page of your repo OR ask repo owner)>/repository/commits?ref_name=master",
 			"commitAuthorEmail": "<email-of-the-committer-to-filter>",
 			"PRIVATE-TOKEN": "<your gitlab private token. look at your profile page>"
 		}

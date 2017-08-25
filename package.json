@@ -1,6 +1,6 @@
 {
 	"name": "auto-timesheet",
-	"version": "2.0.1",
+	"version": "2.0.2",
 	"description": "Add redmine timesheet automatically and periodically.",
 	"main": "src/bin/auto-timesheet.js",
 	"bin": {
